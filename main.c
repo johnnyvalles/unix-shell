@@ -6,11 +6,6 @@
 #define MAXARGS 128
 #define MAXLINE 8192
 
-void _print_buffer_(const char* buf) {
-    // Assumes null-terminated buffer
-    printf("%s", buf);
-}
-
 int main(int argc, char** argv) {
 
     int i;
@@ -22,7 +17,6 @@ int main(int argc, char** argv) {
         printf(">> ");
         
         fgets(cmdline, MAXLINE, stdin);
-        _print_buffer_(cmdline);
         
         // Check if user typed CTRL+d to exit shell
         if(feof(stdin))
