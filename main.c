@@ -1,4 +1,7 @@
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,7 +24,7 @@ int main(int argc, char** argv) {
         // Get line from stdin
         fgets(buf, MAXLINE, stdin);
         
-        // Check if user typed CTRL+d to exit shell
+        // Check for end-of-file
         if(feof(stdin))
             exit(0);
 
