@@ -13,6 +13,10 @@ extern char** environ;
 
 void evalcmd(char* buf);
 int parsecmd(char* buf, char** argv);
+void builtincmd(char** argv) {
+    if (!strcmp(argv[0], "quit"))
+        exit(0);
+}
 
 int main(int argc, char** argv) {
     char buf[MAXLINE]; // Input buffer
@@ -84,6 +88,8 @@ int parsecmd(char* buf, char** argv) {
 
     if (argc == 0)
         return -1;
+    
+    builtincmd(argv);
 
     return 0;
 }
