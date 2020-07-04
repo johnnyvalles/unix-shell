@@ -1,37 +1,86 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/ioctl.h>
 #include <string.h>
 
 #define MAXARGS 128
 #define MAXLINE 8192
 
-int main(int argc, char** argv) {
+extern char** environ;
 
-    int i;
-    struct winsize terminal;
-    char cmdline[MAXLINE];
+void evalcmd(char* buf);
+int parsecmd(char* buf, char** argv);
+
+int main(int argc, char** argv) {
+    char buf[MAXLINE]; // Input buffer
     
     while(1) {
-        printf("ROWS: %d, COLUMNS: %d\n", terminal.ws_row, terminal.ws_col);
+        // Print shell prompt
         printf(">> ");
         
-        fgets(cmdline, MAXLINE, stdin);
+        // Get line from stdin
+        fgets(buf, MAXLINE, stdin);
         
         // Check if user typed CTRL+d to exit shell
         if(feof(stdin))
             exit(0);
 
-        if (strcmp(cmdline, "clear")) {
-            ioctl(0, TIOCGWINSZ, &terminal);
-            
-            for (i = 0; i < terminal.ws_row - 2; ++i)
-                printf("\n");
-
-        }
-
-
+        // Evaluate command
+        evalcmd(buf);
     }
 
     return EXIT_SUCCESS;
+}
+
+void evalcmd(char* buf) {
+    char* argv[MAXARGS];
+    char modbuf[MAXLINE];
+    pid_t pid;
+
+    strcpy(modbuf, buf);
+
+    if (parsecmd(modbuf, argv) < 0)
+        return;
+    
+    if ((pid = fork()) == 0) {
+        if (execve(argv[0], argv, environ) < 0) {
+            printf("%s: Command not found.\n", argv[0]);
+            return;
+        }
+    }
+
+    // Parent waits for foreground children
+    if (waitpid(pid, NULL, 0) < 0)
+        printf("Wait Error.\n");
+
+}
+
+int parsecmd(char* buf, char** argv) {
+    char* del;
+    int argc;
+
+    // Remove trailing '\n'
+    buf[strlen(buf) - 1] = ' ';
+
+    // Ignore leading spaces
+    while (buf && (*buf == ' '))
+        ++buf;
+
+    // Build argv
+    argc = 0;
+    while ((del = strchr(buf, ' '))) {
+        *del = '\0';
+        argv[argc++] = buf;
+
+        buf = del + 1;
+
+        while (buf && (*buf == ' '))
+            ++buf;
+    }
+    argv[argc] = NULL;
+
+    if (argc == 0)
+        return -1;
+
+    return 0;
 }
