@@ -55,7 +55,7 @@ For generating an executable object file with debugging information, compile `sh
 ## Evaluate User Input
 ## Create a New Child Process
 ## Execute Command in the New Child Process
-## Reaping Child Proceses and Avoiding Zombies
+## Reaping Child Processes and Avoiding Zombies
 ## Additional Reading & Sources
 http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf
 
