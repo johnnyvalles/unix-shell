@@ -4,7 +4,7 @@
 A basic understanding of the following language and concepts:
 * C programming language: data types, functions, pointers and string representation
 * Programs, processes, address space, zombies and reaping 
-* System calls: `fork()`, `exec()`, `wait()`
+* System calls: `fgets`, `fork()`, `exec()`, `wait()`
 * Navigating directories and executing commands with a shell (e.g bash, zsh)
 
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
@@ -60,6 +60,35 @@ gcc shell.c -o shell
 For generating an executable object file with debugging information, compile `shell.c` with the `-g` option (e.g. debugging with `gdb`).
 
 ## Read User Input
+Our shell needs a way to prompt, read and store input from the user. For now, we assume that all of the inputs will come from `stdin`. Reading whole-line inputs from `stdin` can easily be accomplished using `fgets()`. We will need to repeat this process however many times the user wishes. Thus, it is best to write this functionality in a while loop.
+
+```c
+/* shell.c */
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXARGS 128
+#define MAXLINE 8192
+
+int
+main() {
+    char buf[MAXLINE];                                      /* buffer holds user's input */
+    while(1) {
+        printf(">>> ");                                     /* print the shell prompt */
+        fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
+        if (feof(stdin))                                    /* check for end-of-file */
+            exit(0);
+        printf("%s\n", buf);
+    }
+    return EXIT_SUCCESS;
+}
+```
+
 ## Evaluate User Input
 ## Create a New Child Process
 ## Execute Command in the New Child Process
