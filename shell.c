@@ -1,3 +1,4 @@
+/* shell.c */
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -15,7 +16,7 @@ main() {
     while(1) {
         printf(">>> ");                                     /* print the shell prompt */
         fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
-        if (feof(stdin))                                    /* check for end-of-file */
+        if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
             exit(0);
         printf("%s\n", buf);
     }
