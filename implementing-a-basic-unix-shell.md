@@ -4,7 +4,7 @@
 A basic understanding of the following language and concepts:
 * C programming language: data types, functions, pointers and string representation
 * Programs, processes, address space, zombies and reaping 
-* System calls: `fgets`, `fork()`, `exec()`, `wait()`
+* System calls: `fork()`, `exec()`, `wait()`
 * Navigating directories and executing commands with a shell (e.g bash, zsh)
 
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
@@ -16,13 +16,15 @@ In this article, you will learn how to implement a basic shell that can be compi
 4. `program1 arg1 arg2 arg3`
 5. `/path/to/the/program`
 
-The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining. However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
+The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining.
+
+However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
 
 ## Outcomes
-Upon completion of the article, you will have a basic understanding of the fundamentals of system calls, operating system interfaces and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
+Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
 
 ## What is a shell?
-A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity, builds any necessary data structures for the program to run, creates a new process and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user level process. We will implement it as a series of steps:
+A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user level process. We will implement it as a series of steps:
 1. Program set up
 2. Read user input
 3. Evaluate user input
@@ -60,7 +62,7 @@ gcc shell.c -o shell
 For generating an executable object file with debugging information, compile `shell.c` with the `-g` option (e.g. debugging with `gdb`).
 
 ## Read User Input
-Our shell needs a way to prompt, read and store input from the user. For now, we assume that all of the inputs will come from `stdin`. Reading whole-line inputs from `stdin` can easily be accomplished using `fgets()`. We will need to repeat this process however many times the user wishes. Thus, it is best to write this functionality in a while loop.
+Our shell needs a way to prompt, read and store input from the user. For now, we assume that all of the inputs will come from `stdin`. Reading whole-line inputs from `stdin` can easily be accomplished using `fgets()`. `fgets()` reads in at most one character less than the specified maximum (i.e. accounts for the NULL character) and includes the newline character. We will need to repeat this process however many times the user wishes. Thus, it is best to write this functionality in a while loop.
 
 ```c
 /* shell.c */
@@ -81,7 +83,7 @@ main() {
     while(1) {
         printf(">>> ");                                     /* print the shell prompt */
         fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
-        if (feof(stdin))                                    /* check for end-of-file */
+        if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
             exit(0);
         printf("%s\n", buf);
     }
@@ -90,6 +92,8 @@ main() {
 ```
 
 ## Evaluate User Input
+Once the data available in `stdin` has been read into the buffer, it must be evaluated by parsing and tokenization. For simplicity, we assume the line is delimited by spaces. Parsing the command allows the shell to determine whether the line pertains to a built-in command (e.g. pwd) or a program name. Otherwise, an error message is printed to `stderr` informing the user that the command was invalid. Our shell has two built-in commands: `exit` and `help`. The former terminates the shell process and the latter prints out helpful information for using our shell.
+
 ## Create a New Child Process
 ## Execute Command in the New Child Process
 ## Reaping Child Processes and Avoiding Zombies
