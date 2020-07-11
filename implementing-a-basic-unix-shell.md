@@ -5,7 +5,9 @@ A basic understanding of the following language and concepts:
 * C programming language: data types, functions, pointers and string representation
 * Programs, processes, address space, zombies and reaping 
 * System calls: `fork()`, `exec()`, `wait()`
+* Navigating directories and executing commands with a shell (e.g bash, zsh)
 
+If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
 ## Introduction
 In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux OS family). The shell will allow a user to run programs in the following fashion from the root directory (1-3), working directory (4), and absolute path (5):
 1. `/bin/ls -al`
@@ -20,7 +22,7 @@ The implementation is considered basic due to the inability to run programs in a
 Upon completion of the article, you will have a basic understanding of the fundamentals of system calls, operating system interfaces and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
 
 ## What is a shell?
-A shell is a user program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity, builds any necessary data structures for the program to run, creates a new process and runs that program within the context of that new process. This is all accomplished by using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user level process. We will implement it in a series of steps:
+A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity, builds any necessary data structures for the program to run, creates a new process and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user level process. We will implement it as a series of steps:
 1. Program set up
 2. Read user input
 3. Evaluate user input
@@ -43,6 +45,12 @@ The shell source code will be written in a single file called `shell.c`. The hea
 
 #define MAXARGS 128
 #define MAXLINE 8192
+
+int
+main() {
+
+    return EXIT_SUCCESS;
+}
 ```
 
 The shell will be compiled using `gcc` in the following manner:
