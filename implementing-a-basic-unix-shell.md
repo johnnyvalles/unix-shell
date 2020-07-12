@@ -94,6 +94,46 @@ main() {
 ## Evaluate User Input
 Once the data available in `stdin` have been read into the buffer, it must be evaluated by parsing and tokenization. For simplicity, we assume the line is delimited by spaces. Parsing the command allows the shell to determine whether the line pertains to a built-in command (e.g. pwd) or a program name. Otherwise, an error message is printed to `stderr` informing the user that the command was invalid. Our shell has two built-in commands: `exit` and `help`. The former terminates the shell process and the latter prints out helpful information for using our shell.
 
+Since `fgets()` retains the newline character, we need to replace it with a space character to correctly parse the assumed space-delimited command string (i.e. replace last character with a space). Once the character has been replaced, we can move onto tokenizing the command string. Once again, the use of a while-loop is appropriate. This functionaly will be written in the function `parse_cmd()`. The prototype and definition are presented below.
+
+```c
+/* shell.c */
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXARGS 128
+#define MAXLINE 8192
+
+int
+parse_cmd(const char* buf);
+
+int
+main() {
+    char buf[MAXLINE];                                      /* buffer holds user's input */
+    while(1) {
+        printf(">>> ");                                     /* print the shell prompt */
+        fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
+        if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
+            exit(0);
+        printf("%s\n", buf);
+    }
+    return EXIT_SUCCESS;
+}
+
+int
+parse_cmd(const char* buf) {
+    char* argv[MAXARGS];
+    
+    
+}
+```
+
+
 ## Create a New Child Process
 ## Execute Command in the New Child Process
 ## Reaping Child Processes and Avoiding Zombies
