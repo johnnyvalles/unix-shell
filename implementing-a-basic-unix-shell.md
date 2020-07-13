@@ -4,7 +4,7 @@
 A basic understanding of the following language and concepts:
 * C programming language: data types, functions, pointers and string representation
 * Programs, processes, address space, zombies and reaping 
-* System calls: `fork()`, `exec()`, `wait()`
+* System calls: `fork()`, `exec()`, `wait()` or alternatively `execve()` and `waitpid()`
 * Navigating directories and executing commands with a shell (e.g bash, zsh)
 
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
