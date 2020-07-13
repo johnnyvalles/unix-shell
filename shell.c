@@ -32,26 +32,26 @@ void
 parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
     char* del;                                              /* delimiter pointer */
-    int i;                                                  /* holds number of arguments parsed (argc) */
+    int argc;                                               /* number of arguments parsed */
     
     buf[strlen(buf) - 1] = ' ';                             /* replace '\n' with a space */
     
     while (buf && (*buf == ' '))                            /* ignore leading spaces */
         ++buf;
     
-    i = 0;
+    argc = 0;
     while ((del = strchr(buf, ' '))) {                      /* construct argv */
         *del = '\0';
-        argv[i++] = buf; 
+        argv[argc++] = buf; 
         buf = del + 1;
         
         while (buf && (*buf == ' '))                        /* ignore leading spaces */
             ++buf;
     }
 
-    argv[i] = NULL;                                         /* NULL-terminate argv */
+    argv[argc] = NULL;                                      /* NULL-terminate argv */
     
-    if (i == 0)                                             /* empty line */
+    if (argc == 0)                                          /* empty line */
         return;
 
     if (builtin_cmd(argv))                                  /* check if built-in command */
