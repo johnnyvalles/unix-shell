@@ -17,9 +17,8 @@ int
 main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
     while(1) {
-        printf(">>> ");                                     /* print the shell prompt */
-        fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
-        if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
+        printf(">>> ");                                     /* print shell prompt */
+        if (fgets(buf, MAXLINE, stdin) == NULL)             /* read and store line, check for end-of-file or error */
             exit(0);
         parse_cmd(buf);                                     /* parse the command */
     }
@@ -29,21 +28,21 @@ main() {
 void
 parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
-    char* del;                                              /* delimter pointer */
+    char* del;                                              /* delimiter pointer */
     int i;                                                  /* holds number of arguments parsed (argc) */
     
-    buf[strlen(buf) - 1] = ' ';                             /* Replace newline with a space */
+    buf[strlen(buf) - 1] = ' ';                             /* replace '\n' with a space */
     
-    while (buf && (buf[i] == ' '))                          /* ignore leading spaces */
+    while (buf && (*buf == ' '))                            /* ignore leading spaces */
         ++buf;
     
     i = 0;
-    while ((del = strchr(buf, ' '))) {                      /* begin constructing argv */
+    while ((del = strchr(buf, ' '))) {                      /* construct argv */
         *del = '\0';
         argv[i++] = buf; 
         buf = del + 1;
         
-        while (buf && (buf[i] == ' '))                      /* ignore leading spaces */
+        while (buf && (*buf == ' '))                        /* ignore leading spaces */
             ++buf;
     }
 
