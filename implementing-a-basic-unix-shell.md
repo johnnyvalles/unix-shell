@@ -28,7 +28,7 @@ A shell is a program that can run commands and programs on behalf of a user. Pri
 1. Program set up
 2. Read user input
 3. Evaluate user input
-4. Built-in commands
+4. Built-in commands 
 5. Create a new child process
 6. Execute command in the new child process
 

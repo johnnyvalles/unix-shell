@@ -13,6 +13,8 @@
 void
 parse_cmd(char* buf);
 
+void builtin_cmd(char* buf);
+
 int
 main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
