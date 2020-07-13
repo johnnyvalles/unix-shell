@@ -30,7 +30,7 @@ void
 parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
     char* del;                                              /* delimter pointer */
-    int i;                                                  /* holds number of arguments parsed */
+    int i;                                                  /* holds number of arguments parsed (argc) */
     
     buf[strlen(buf) - 1] = ' ';                             /* Replace newline with a space */
     
@@ -46,6 +46,8 @@ parse_cmd(char* buf) {
         while (buf && (buf[i] == ' '))                      /* ignore leading spaces */
             ++buf;
     }
+
+    argv[i] = NULL;                                         /* NULL-terminate argv */
     
     if (i == 0)
         return;
