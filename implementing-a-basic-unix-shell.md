@@ -85,7 +85,6 @@ main() {
         fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
         if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
             exit(0);
-        printf("%s\n", buf);
     }
     return EXIT_SUCCESS;
 }
