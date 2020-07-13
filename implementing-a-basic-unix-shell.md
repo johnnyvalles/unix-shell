@@ -62,7 +62,7 @@ gcc shell.c -o shell
 For generating an executable object file with debugging information, compile `shell.c` with the `-g` option (e.g. debugging with `gdb`).
 
 ## Read User Input
-Our shell needs a way to prompt, read and store input from the user. For now, we assume that all of the inputs will come from `stdin`. Reading whole-line inputs from `stdin` can easily be accomplished using `fgets()`. `fgets()` reads in at most one character less than the specified maximum (i.e. accounts for the NULL character) and includes the newline character. We will need to repeat this process however many times the user wishes. Thus, it is best to write this functionality in a while loop.
+Our shell needs a way to prompt, read and store input from the user. For now, we assume that all of the inputs will come from `stdin`. Reading whole-line inputs from `stdin` can easily be accomplished using `fgets()`. `fgets()` reads in at most one character less than the specified maximum (i.e. accounts for the NULL character) and includes the newline character. We will need to repeat this process however many times the user wishes. Thus, it is best to write this functionality in a while-loop.
 
 ```c
 /* shell.c */
@@ -109,8 +109,8 @@ Since `fgets()` retains the newline character, we need to replace it with a spac
 #define MAXARGS 128
 #define MAXLINE 8192
 
-int
-parse_cmd(const char* buf);
+void
+parse_cmd(char* buf);
 
 int
 main() {
@@ -120,16 +120,33 @@ main() {
         fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
         if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
             exit(0);
-        printf("%s\n", buf);
+        parse_cmd(buf)
     }
     return EXIT_SUCCESS;
 }
 
-int
-parse_cmd(const char* buf) {
-    char* argv[MAXARGS];
+void
+parse_cmd(char* buf) {
+    char* argv[MAXARGS];                                    /* argument vector */
+    int i;
+    char* del                                               /* delimter pointer */
+    buf[strlen(buf) - 1] = ' ';                             /* Replace newline with a space */
     
+    while (buf && (buf[i] == ' '))                          /* ignore leading spaces */
+        ++buf;
     
+    i = 0;
+    while ((del = strchr(buf, ' ')) {
+        *del = '\0';
+        argv[i++] = buf; 
+        buf = del + 1;
+        
+        while (buf && (buf[i] == ' '))                      /* ignore leading spaces */
+            ++buf;
+    }
+    
+    if (argc == 0)
+        return;
 }
 ```
 
