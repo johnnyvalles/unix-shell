@@ -23,7 +23,7 @@ However, the implementation is thorough enough to grant the programmer freedom w
 ## Outcomes
 Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
 
-## What is a shell?
+## What is a Shell?
 A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user level process. We will implement it as a series of steps:
 1. Program set up
 2. Read user input
@@ -92,7 +92,12 @@ main() {
 ## Evaluate User Input
 Once the data available in `stdin` have been read into the buffer, it must be evaluated by parsing and tokenization. For simplicity, we assume the line is delimited by spaces. Parsing the command allows the shell to determine whether the line pertains to a built-in command (e.g. pwd) or a program name. Otherwise, an error message is printed to `stderr` informing the user that the command was invalid. Our shell has two built-in commands: `exit` and `help`. The former terminates the shell process and the latter prints out helpful information for using our shell.
 
-Since `fgets()` retains the newline character, we need to replace it with a space character to correctly parse the assumed space-delimited command string (i.e. replace last character with a space). Once the character has been replaced, we can move onto tokenizing the command string. Once again, the use of a while-loop is appropriate. This functionaly will be written in the function `parse_cmd()`. The prototype and definition are presented below.
+Since `fgets()` retains the newline character, we need to replace it with a space character to correctly parse the assumed space-delimited command string (i.e. replace last character with a space). Once the character has been replaced, we can move onto tokenizing the command string. Once again, the use of a while-loop is appropriate. 
+
+The parsing functionaly will be written in the function `parse_cmd()`. This function is also responsible for building the `argv` array, a NULL-terminated array of pointers to character strings. By convention, the first element of `argv` is the name of the program executable file. The remaining elements, if any, are arguments or options for that program (e.g. `/bin/ls -al`). 
+
+
+The prototype and definition for `parse_cmd()`are presented below.
 
 ```c
 /* shell.c */
