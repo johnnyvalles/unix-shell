@@ -156,6 +156,29 @@ parse_cmd(char* buf) {
 ```
 
 ## Built-in Commands
+The shell has two built-in commands: `exit` and `help`. These commands are run by the shell process rather than in the context of a child process. `exit` allows a user to terminate the shell if they wish do so. `help` displays usefull information about the shell, such as the version number or a list of built-in commands. 
+
+Thus, the shell needs a way to determine whether the user has typed a built-in command or the name of a program. This functionality will be written in the `builtin_cmd()` function, utilizing the `strcmp()` function. If the input is a built-in command, it runs the command and proceeds to return 1, 0 otherwise. The prototype and definition are presented below. The use of the function will be showcased in the next section.
+
+```c
+int 
+builtin_cmd(char** buf);
+
+int 
+builtin_cmd(char** argv) {
+    if (!strcmp(*argv, "exit"))
+        exit(0);
+    
+    if (!strcmp(*argv, "help")) {
+        printf("Help command.\n");
+        return 1;
+    }
+
+    return 0;
+}
+```
+
+
 ## Create a New Child Process
 ## Execute Command in the New Child Process
 ## Reaping Child Processes and Avoiding Zombies

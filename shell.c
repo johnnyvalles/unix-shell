@@ -13,7 +13,8 @@
 void
 parse_cmd(char* buf);
 
-void builtin_cmd(char* buf);
+int 
+builtin_cmd(char** buf);
 
 int
 main() {
@@ -50,6 +51,23 @@ parse_cmd(char* buf) {
 
     argv[i] = NULL;                                         /* NULL-terminate argv */
     
-    if (i == 0)
+    if (i == 0)                                             /* empty line */
         return;
+
+    if (builtin_cmd(argv))                                  /* check if built-in command */
+        return;
+    
+}
+
+int 
+builtin_cmd(char** argv) {
+    if (!strcmp(*argv, "exit"))
+        exit(0);
+    
+    if (!strcmp(*argv, "help")) {
+        printf("Help command.\n");
+        return 1;
+    }
+
+    return 0;
 }
