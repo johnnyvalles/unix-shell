@@ -119,7 +119,7 @@ main() {
         fgets(buf, MAXLINE, stdin);                         /* read a line and store in buffer */
         if (fgets(buf, MAXLINE, stdin) == NULL)             /* check for end-of-file or error */
             exit(0);
-        parse_cmd(buf)
+        parse_cmd(buf);                                     /* parse the command */
     }
     return EXIT_SUCCESS;
 }
@@ -127,15 +127,16 @@ main() {
 void
 parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
-    int i;
-    char* del                                               /* delimter pointer */
+    char* del;                                              /* delimter pointer */
+    int i;                                                  /* holds number of arguments parsed */
+    
     buf[strlen(buf) - 1] = ' ';                             /* Replace newline with a space */
     
     while (buf && (buf[i] == ' '))                          /* ignore leading spaces */
         ++buf;
     
     i = 0;
-    while ((del = strchr(buf, ' ')) {
+    while ((del = strchr(buf, ' '))) {                      /* begin constructing argv */
         *del = '\0';
         argv[i++] = buf; 
         buf = del + 1;
@@ -144,7 +145,7 @@ parse_cmd(char* buf) {
             ++buf;
     }
     
-    if (argc == 0)
+    if (i == 0)
         return;
 }
 ```
