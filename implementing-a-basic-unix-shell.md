@@ -29,8 +29,7 @@ A shell is a program that can run commands and programs on behalf of a user. Pri
 2. Read user input
 3. Evaluate user input
 4. Built-in commands 
-5. Create a new child process
-6. Execute command in the new child process
+5. Run a Program in a Child Process
 
 ## Program Set Up
 The shell source code will be written in a single file called `shell.c`. The header files in the code block below must be included into the program to enable I/O and use of system calls provided by the operating system. Additionally, we need to define two symbolic constants `MAXARGS` and `MAXLINE`. The two will provide an upperbound on the number of characters for arguments a user can provide with a command and the character length of the overall command, respectively.
