@@ -182,11 +182,12 @@ builtin_cmd(char** argv) {
 ## Create a New Child Process
 By this point, the shell is capabale of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the elected program. Our shell is not capable of running background processes, so instead it will create a child process and halt until the child process has terminated. 
 
-Unix operating systems provide three systems calls that faciliate this form of process control. A brief description of the three follows.
+Unix operating systems provide three systems calls that facilitate this form of process control. A brief description of the three follows.
 
-1. `fork()`: creates a new child process. This system call is unique in the sense that it returns twice. On success, it returns the process identification (PID) of the child to the parent and returns 0 to the child. When invoked, it creates a copy of the calling process' address space for the child. However, after forking, the two processes, although contianing identical symbols, do not share them (e.g. variable names or functions). Unless the parent process is explicitly instructed to wait on the child, the order in which they run is completely up to the operating system scheduler. Thus the order can vary from system-to-system.
+1. `fork()`: creates a new child process. This system call is unique in the sense that it returns twice. On success, it returns the process identification (PID) of the child to the parent and returns 0 to the child. When invoked, it creates a copy of the calling process' address space for the child. However, after forking, the two processes, although containing identical symbols, do not share them (e.g. variable names or functions). Unless the parent process is explicitly instructed to wait on the child, the order in which they run is completely up to the operating system scheduler. Thus the order can vary from system-to-system.
 2.  `exec()`: overwrites the calling process' address space with that of a new program. On success, it does not return.
 3.  `wait()`: suspends excution of the calling process and waits for a child process to terminate. If a child process has already terminated at the time it is called, it returns the PID of the child.
+
 ## Execute Command in the New Child Process
 ## Reaping Child Processes and Avoiding Zombies
 ## Additional Reading & Sources
