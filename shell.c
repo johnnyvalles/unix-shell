@@ -10,17 +10,13 @@
 #define MAXARGS 128
 #define MAXLINE 8192
 
-void
-parse_cmd(char* buf);
+void parse_cmd(char* buf);
 
-int
-builtin_cmd(char** buf);
+int builtin_cmd(char** buf);
 
-void
-exec_cmd(char** argv);
+void exec_cmd(char** argv);
 
-int
-main() {
+int main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
     while(1) {
         printf(">>> ");                                     /* print shell prompt */
@@ -31,8 +27,7 @@ main() {
     return EXIT_SUCCESS;
 }
 
-void
-parse_cmd(char* buf) {
+void parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
     char* del;                                              /* delimiter pointer */
     int argc;                                               /* number of arguments parsed */
@@ -63,8 +58,7 @@ parse_cmd(char* buf) {
     exec_cmd(argv);
 }
 
-int
-builtin_cmd(char** argv) {
+int builtin_cmd(char** argv) {
     if (!strcmp(*argv, "exit"))
         exit(0);
     
@@ -76,8 +70,7 @@ builtin_cmd(char** argv) {
     return 0;
 }
 
-void
-exec_cmd(char** argv) {
+void exec_cmd(char** argv) {
     if (fork() == 0) {
         if (execv(*argv, argv) < 0) {
             printf("%s: unknown command.\n", *argv);
