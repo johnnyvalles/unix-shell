@@ -9,7 +9,7 @@ A basic understanding of the following language and concepts:
 
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
 ## Introduction
-In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux OS family). The shell will allow a user to run programs in the following fashion from the root directory (1-3), working directory (4), and absolute path (5):
+In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion from the root directory (1-3), working directory (4), and absolute path (5):
 1. `/bin/ls -al`
 2. `/bin/ps aux`
 3. `/bin/echo "Hello, World!"`
@@ -20,13 +20,13 @@ The implementation is considered basic due to the inability to run programs in a
 
 However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
 
-Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is so use it's manual page, otherwise known as a *man page*. This page can easily be brought up in the following maner right from a terminal:
+Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is so use it's manual page, otherwise known as a *man page*. This page can easily be brought up in the following manner right from a terminal:
 * `man echo`
 * `man strcmp`
 * `man exevc`
 * `man fork`
 
-Searching for particlar entry in a man page can be done using grep and passing its output to a program like `echo` or `less` via a pipe (i.e. `|`).
+Searching for particular entry in a man page can be done using `grep` and optionally passing its output to a program like `echo` or `less` via a pipe (i.e. `|`).
 
 ## Outcomes
 Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
@@ -99,7 +99,7 @@ Once the data available in `stdin` have been read into the buffer, it must be ev
 
 Since `fgets()` retains the newline character, we need to replace it with a space character to correctly parse the assumed space-delimited command string (i.e. replace last character with a space). Once the character has been replaced, we can move onto tokenizing the command string. Once again, the use of a while-loop is appropriate. 
 
-The parsing functionaly will be written in the function `parse_cmd()`. This function is also responsible for building the `argv` array, a NULL-terminated array of pointers to character strings. By convention, the first element of `argv` is the name of the program executable file. The remaining elements, if any, are arguments or options for that program (e.g. `/bin/ls -al`). 
+The parsing functionaly will be written in the function `parse_cmd()`. This function is also responsible for building the `argv` array, a NULL-terminated array of pointers to NULL-terminated character strings. By convention, the first element of `argv` is the name of the program executable file. The remaining elements, if any, are arguments or options for that program (e.g. `/bin/ls -al`). 
 
 
 The prototype and definition for `parse_cmd()`are presented below.
