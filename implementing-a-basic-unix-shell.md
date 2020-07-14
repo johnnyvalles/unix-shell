@@ -20,6 +20,14 @@ The implementation is considered basic due to the inability to run programs in a
 
 However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
 
+Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is so use it's manual page, otherwise known as a *man page*. This page can easily be brought up in the following maner right from a terminal:
+* `man echo`
+* `man strcmp`
+* `man exevc`
+* `man fork`
+
+Searching for particlar entry in a man page can be done using grep and passing its output to a program like `echo` or `less` via a pipe (i.e. `|`).
+
 ## Outcomes
 Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
 
