@@ -29,7 +29,7 @@ A shell is a program that can run commands and programs on behalf of a user. Pri
 2. Read user input
 3. Evaluate user input
 4. Built-in commands 
-5. Run a Program in a Child Process
+5. Run a program in a child process
 
 ## Program Set Up
 The shell source code will be written in a single file called `shell.c`. The header files in the code block below must be included into the program to enable I/O and use of system calls provided by the operating system. Additionally, we need to define two symbolic constants `MAXARGS` and `MAXLINE`. The two will provide an upperbound on the number of characters for arguments a user can provide with a command and the character length of the overall command, respectively.
@@ -178,7 +178,7 @@ builtin_cmd(char** argv) {
 ```
 
 
-## Running a Program in a Child Process
+## Run a Program in a Child Process
 By this point, the shell is capabale of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the elected program. Our shell is not capable of running background processes, so instead it will create a child process and halt until the child process has terminated. 
 
 Unix operating systems provide three systems calls that facilitate this form of process control. A brief description of the three follows.
