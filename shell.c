@@ -11,9 +11,7 @@
 #define MAXLINE 8192
 
 void parse_cmd(char* buf);
-
 int builtin_cmd(char** buf);
-
 void exec_cmd(char** argv);
 
 int main() {
