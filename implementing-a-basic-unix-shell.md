@@ -47,8 +47,7 @@ The shell source code will be written in a single file called `shell.c`. The hea
 #define MAXARGS 128
 #define MAXLINE 8192
 
-int
-main() {
+int main() {
 
     return EXIT_SUCCESS;
 }
@@ -76,8 +75,7 @@ Our shell needs a way to prompt, read and store input from the user. For now, we
 #define MAXARGS 128
 #define MAXLINE 8192
 
-int
-main() {
+int main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
     while(1) {
         printf(">>> ");                                     /* print shell prompt */
@@ -111,11 +109,9 @@ The prototype and definition for `parse_cmd()`are presented below.
 #define MAXARGS 128
 #define MAXLINE 8192
 
-void
-parse_cmd(char* buf);
+void parse_cmd(char* buf);
 
-int
-main() {
+int main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
     while(1) {
         printf(">>> ");                                     /* print shell prompt */
@@ -126,8 +122,7 @@ main() {
     return EXIT_SUCCESS;
 }
 
-void
-parse_cmd(char* buf) {
+void parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
     char* del;                                              /* delimiter pointer */
     int i;                                                  /* holds number of arguments parsed (argc) */
@@ -160,11 +155,9 @@ The shell has two built-in commands: `exit` and `help`. These commands are run b
 Thus, the shell needs a way to determine whether the user has typed a built-in command or the name of a program. This functionality will be written in the `builtin_cmd()` function, utilizing the `strcmp()` function. If the input is a built-in command, it runs the command and proceeds to return 1, 0 otherwise. The prototype and definition are presented below. The use of the function will be showcased in the next section.
 
 ```c
-int 
-builtin_cmd(char** buf);
+int builtin_cmd(char** buf);
 
-int 
-builtin_cmd(char** argv) {
+int builtin_cmd(char** argv) {
     if (!strcmp(*argv, "exit"))
         exit(0);
     
@@ -204,17 +197,13 @@ Recall that the scheduluer decides when either the parent or child process runs.
 #define MAXARGS 128
 #define MAXLINE 8192
 
-void
-parse_cmd(char* buf);
+void parse_cmd(char* buf);
 
-int
-builtin_cmd(char** buf);
+int builtin_cmd(char** buf);
 
-void
-exec_cmd(char** argv);
+void exec_cmd(char** argv);
 
-int
-main() {
+int main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
     while(1) {
         printf(">>> ");                                     /* print shell prompt */
@@ -225,8 +214,7 @@ main() {
     return EXIT_SUCCESS;
 }
 
-void
-parse_cmd(char* buf) {
+void parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
     char* del;                                              /* delimiter pointer */
     int argc;                                               /* number of arguments parsed */
@@ -257,8 +245,7 @@ parse_cmd(char* buf) {
     exec_cmd(argv);
 }
 
-int
-builtin_cmd(char** argv) {
+int builtin_cmd(char** argv) {
     if (!strcmp(*argv, "exit"))
         exit(0);
     
@@ -270,8 +257,7 @@ builtin_cmd(char** argv) {
     return 0;
 }
 
-void
-exec_cmd(char** argv) {
+void exec_cmd(char** argv) {
     if (fork() == 0) {
         if (execv(*argv, argv) < 0) {
             printf("%s: unknown command.\n", *argv);
