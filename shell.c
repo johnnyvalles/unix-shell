@@ -13,8 +13,11 @@
 void
 parse_cmd(char* buf);
 
-int 
+int
 builtin_cmd(char** buf);
+
+void
+exec_cmd(char** argv);
 
 int
 main() {
@@ -56,10 +59,11 @@ parse_cmd(char* buf) {
 
     if (builtin_cmd(argv))                                  /* check if built-in command */
         return;
-    
+
+    exec_cmd(argv);
 }
 
-int 
+int
 builtin_cmd(char** argv) {
     if (!strcmp(*argv, "exit"))
         exit(0);
@@ -70,4 +74,16 @@ builtin_cmd(char** argv) {
     }
 
     return 0;
+}
+
+void
+exec_cmd(char** argv) {
+    if (fork() == 0) {
+        if (execv(*argv, argv) < 0) {
+            printf("%s: unknown command.\n", *argv);
+            exit(0);
+        }
+    } else {
+        wait(NULL);
+    }
 }
