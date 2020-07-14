@@ -179,7 +179,7 @@ builtin_cmd(char** argv) {
 ```
 
 
-## Create a New Child Process
+## Running a Program in a Child Process
 By this point, the shell is capabale of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the elected program. Our shell is not capable of running background processes, so instead it will create a child process and halt until the child process has terminated. 
 
 Unix operating systems provide three systems calls that facilitate this form of process control. A brief description of the three follows.
@@ -188,7 +188,102 @@ Unix operating systems provide three systems calls that facilitate this form of 
 2.  `exec()`: overwrites the calling process' address space with that of a new program. On success, it does not return.
 3.  `wait()`: suspends excution of the calling process and waits for a child process to terminate. If a child process has already terminated at the time it is called, it returns the PID of the child.
 
-## Execute Command in the New Child Process
+Executing the specificed program in the context of a new process will be handled by the `exec_cmd()` function, which is invoked from `parse_cmd()`. This is where the shell's abilities begin to shine by utlilizing the three systems calls introduced in the *Prerequisites* section. If `exec_cmd()` fails to run the program specified by the path in `argv[0]`, and error message is printed from the child process to `stdout` and then terminates. 
+
+Recall that the scheduluer decides when either the parent or child process runs. Therefore, it is possible for the parent to run first and then the child or vice-versa. However, the parent process can be halted until a child process it spawned has terminated by using `wait()`. That way if the parent process runs first, it will immediately halt. 
+
+```c
+/* shell.c */
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAXARGS 128
+#define MAXLINE 8192
+
+void
+parse_cmd(char* buf);
+
+int
+builtin_cmd(char** buf);
+
+void
+exec_cmd(char** argv);
+
+int
+main() {
+    char buf[MAXLINE];                                      /* buffer holds user's input */
+    while(1) {
+        printf(">>> ");                                     /* print shell prompt */
+        if (fgets(buf, MAXLINE, stdin) == NULL)             /* read and store line, check for end-of-file or error */
+            exit(0);
+        parse_cmd(buf);                                     /* parse the command */
+    }
+    return EXIT_SUCCESS;
+}
+
+void
+parse_cmd(char* buf) {
+    char* argv[MAXARGS];                                    /* argument vector */
+    char* del;                                              /* delimiter pointer */
+    int argc;                                               /* number of arguments parsed */
+    
+    buf[strlen(buf) - 1] = ' ';                             /* replace '\n' with a space */
+    
+    while (buf && (*buf == ' '))                            /* ignore leading spaces */
+        ++buf;
+    
+    argc = 0;
+    while ((del = strchr(buf, ' '))) {                      /* construct argv */
+        *del = '\0';
+        argv[argc++] = buf; 
+        buf = del + 1;
+        
+        while (buf && (*buf == ' '))                        /* ignore leading spaces */
+            ++buf;
+    }
+
+    argv[argc] = NULL;                                      /* NULL-terminate argv */
+    
+    if (argc == 0)                                          /* empty line */
+        return;
+
+    if (builtin_cmd(argv))                                  /* check if built-in command */
+        return;
+
+    exec_cmd(argv);
+}
+
+int
+builtin_cmd(char** argv) {
+    if (!strcmp(*argv, "exit"))
+        exit(0);
+    
+    if (!strcmp(*argv, "help")) {
+        printf("Help command.\n");
+        return 1;
+    }
+
+    return 0;
+}
+
+void
+exec_cmd(char** argv) {
+    if (fork() == 0) {
+        if (execv(*argv, argv) < 0) {
+            printf("%s: unknown command.\n", *argv);
+            exit(0);
+        }
+    } else {
+        wait(NULL);
+    }
+}
+```
+
 ## Reaping Child Processes and Avoiding Zombies
 ## Additional Reading & Sources
 http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf
