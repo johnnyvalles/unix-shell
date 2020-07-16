@@ -284,6 +284,10 @@ If `wait()` is not called then the child process will run but once terminated, w
 
 In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes can be accomplished by invoking the `ps` program using an absolute path to its executable file (i.e `/bin/ps`).
 
+## Zombie Process Examples (optional)
+
+
+
 ## Additional Reading & Sources
 http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf
 
@@ -293,5 +297,5 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbLTg2MDM3NzE1OSwyMDgyOTE4NjMyXX0=
 -->
