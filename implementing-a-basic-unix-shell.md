@@ -34,7 +34,7 @@ Searching for a particular entry in a man page can be done using pipes. The outp
 
  * `man fork `
  * `man fork | grep process`
- *  
+ *  `man execv | grep list of arguments`
 
 ## Outcomes
 Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces, and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
@@ -303,7 +303,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3ODQwODQ3NywtMTAyNTYyNjQ2MCw2Nz
+eyJoaXN0b3J5IjpbMTk1NTA1NDc3MSwtMTAyNTYyNjQ2MCw2Nz
 QxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0
 NywyMDgyOTE4NjMyXX0=
 -->
