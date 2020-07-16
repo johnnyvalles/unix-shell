@@ -109,7 +109,7 @@ Once the data available in `stdin` have been read into the buffer, it must be ev
 
 Since `fgets()` retains the newline character, we need to replace it with a space character to correctly parse the assumed space-delimited command string (i.e. replace the last character with space). Once the character has been replaced, we can move onto tokenizing the command string. Once again, the use of a while-loop is appropriate. 
 
-The parsing functionality will be written in the function `parse_cmd()`. This function is also responsible for building the `argv` array, a NULL-terminated array of pointers to NULL-terminated character strings. By convention, the first element of `argv` is the name of the program executable file. The remaining elements, if any, are arguments or options for that program (e.g. `/bin/ls -al`). 
+The parsing functionality is written in the function `parse_cmd()`. This function is also responsible for building the `argv` array, a NULL-terminated array of pointers to NULL-terminated character strings. By convention, the first element of `argv` is the name of the program executable file. The remaining elements, if any, are arguments or options for that program (e.g. `/bin/ls -al`). 
 
 
 The prototype and definition for `parse_cmd()`are presented below.
@@ -170,7 +170,7 @@ void parse_cmd(char* buf) {
 ## Built-in Commands
 The shell has two built-in commands: `exit` and `help`. These commands are run by the shell process rather than in the context of a child process. `exit` allows a user to terminate the shell if they wish to do so. `help` displays useful information about the shell, such as the version number or a list of built-in commands. 
 
-Thus, the shell needs a way to determine whether the user has typed a built-in command or the name of a program. This functionality will be written in the `builtin_cmd()` function, utilizing the `strcmp()` function. If the input is a built-in command, it runs the command and proceeds to return 1, 0 otherwise. The prototype and definition are presented below. The use of the function will be showcased in the next section.
+Thus, the shell needs a way to determine whether the user has typed a built-in command or the name of a program. This functionality is written in the `builtin_cmd()` function, utilizing the `strcmp()` function. If the input is a built-in command, it runs the command and proceeds to return 1, 0 otherwise. The prototype and definition are presented below. The use of the function will be showcased in the next section.
 
 ```c
 int builtin_cmd(char** buf);
@@ -305,8 +305,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMT
-I0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1
-NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX
-0=
+eyJoaXN0b3J5IjpbMTk3OTgxMjI1NywtNDAyOTkxNjYzLC0xNT
+g2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEw
+ODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LD
+IwODI5MTg2MzJdfQ==
 -->
