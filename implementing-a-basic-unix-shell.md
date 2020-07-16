@@ -197,9 +197,9 @@ Unix operating systems provide three systems calls that facilitate this form of 
 2.  `exec()`: overwrites the calling process' address space with that of a new program. On success, it does not return.
 3.  `wait()`: suspends execution of the calling process and waits for a child process to terminate. If a child process has already terminated at the time it is called, it returns the PID of the child.
 
-Executing the specified program in the context of a new process is handled by the `exec_cmd()` function, which is invoked from `parse_cmd()`. This is where the shell's abilities begin to shine by utilizing the three systems calls introduced in the *Prerequisites* section. If `exec_cmd()` fails to run the program specified by the path in `argv[0]`,  an error message is printed from the child process to `stdout` and then terminates. 
+Executing the specified program in the context of a new process is handled by the `exec_cmd()` function, which is invoked from `parse_cmd()`. This is where the shell's abilities begin to shine by utilizing the three systems calls introduced in the *Prerequisites* section. If `exec_cmd()` fails to run the program specified by the path in `argv[0]`, an error message is printed from the child process to `stdout` and then terminates. 
 
-Recall that the scheduler decides when either the parent or child process runs. Therefore, it is possible for the parent to run first and then the child or vice-versa. However, the parent process can be halted until a child process it spawned has terminated by using `wait()`. That way if the parent process runs first, it will immediately halt. 
+Recall that the scheduler decides when either the parent or child process runs. Therefore, it is possible for the parent to run first and then the child or vice-versa. However, the parent process can be halted until a child process it spawned has terminated by using `wait()`. That way if the parent process runs first, it immediately halts. 
 
 ```c
 /* shell.c */
@@ -305,8 +305,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTQzMzI4LC00MDI5OTE2NjMsLTE1OD
-YzNjAzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4
-ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMj
-A4MjkxODYzMl19
+eyJoaXN0b3J5IjpbMTQ2MTc0MjkyNSwtNDAyOTkxNjYzLC0xNT
+g2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEw
+ODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LD
+IwODI5MTg2MzJdfQ==
 -->
