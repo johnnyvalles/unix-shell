@@ -280,7 +280,10 @@ void exec_cmd(char** argv) {
 ## Reaping Child Processes and Avoiding Zombies
 As mentioned in the previous section, `wait()` suspends execution of the calling process until a child process has terminated. Once a child process has terminated, `wait()` also signals to the operating system that the process has completed and no longer has to be kept around in memory. This allows the operating system to `reap` the process. Reaping terminated processes frees up resources and process data structures used during their execution.
 
-If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent the process. This state where the process is no longer running but is still in memory is known as a `zombie` state. For processes that have long running times and spawn mutliple children throughout their execution, it is vital that they reap their children to free system resources. 
+If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent the process. This state where the process is no longer running but is still in memory is known as a `zombie` state. For processes that have long running times and spawn mutliple children throughout their execution, it is vital that they reap their children to free system resources.
+
+In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes can be accomplished by invoking the `ps` program using an absolute path to its executable file (i.e `/bin/ps`).
+
 ## Additional Reading & Sources
 http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf
 
