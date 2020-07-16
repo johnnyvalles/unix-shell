@@ -69,9 +69,16 @@ int builtin_cmd(char** argv) {
 }
 
 void exec_cmd(char** argv) {
-    if (fork() == 0) {                                      /* create a new process, check if child process */
+    pid_t pid = fork();
+
+    if (pid < 0) {                                          /* check if fork failed */
+        fprintf(stderr, "fork error.\n");                   /* terminate shell if fork failed */ 
+        exit(0);
+    } else if (pid == 0) {                                  /* create a new process, check if child process */
         if (execv(*argv, argv) < 0) {                       /* only runs in child process attempts to run program */
-            printf("%s: unknown command.\n", *argv);        /* terminate child process if exec fails */
+            fprintf(stderr,                                 /* terminate child process if exec fails */
+                    "%s: unknown command.\n", 
+                    *argv);
             exit(0);
         }
     } else {
