@@ -289,9 +289,9 @@ void exec_cmd(char** argv) {
 ## Reaping Child Processes and Avoiding Zombies
 As mentioned in the previous section, `wait()` suspends execution of the calling process until a child process has terminated. Once a child process has terminated, `wait()` also signals to the operating system that the process has completed and no longer has to be kept around in memory. This allows the operating system to `reap` the process. Reaping terminated processes frees up resources and process data structures used during their execution.
 
-If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent the process. This state where the process is no longer running but is still in memory is known as a `zombie` state. For processes that have long-running times and spawn multiple children throughout their execution, it is vital that they reap their children to free system resources.
+If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent it. This state where the process is no longer running but is still in memory is known as a `zombie` state. For processes that have long-running times and spawn multiple children throughout their execution, it is vital that they reap their children to free system resources.
 
-In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes can be accomplished by invoking the `ps` program using an absolute path to its executable file (i.e `/bin/ps`).
+In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes from our shell can be accomplished by invoking the `ps` program using an absolute path to its executable file (e.g. `/bin/ps`).
 
 ## Zombie Process Example (optional)
 This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please reference its man page. Moreover, the repository for this article contains example programs and a Makefile to compile all of the programs. A description of what each program does is given in their respective source file.  
@@ -305,8 +305,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MTc0MjkyNSwtNDAyOTkxNjYzLC0xNT
-g2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEw
-ODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LD
-IwODI5MTg2MzJdfQ==
+eyJoaXN0b3J5IjpbLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1OD
+YzNjAzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4
+ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMj
+A4MjkxODYzMl19
 -->
