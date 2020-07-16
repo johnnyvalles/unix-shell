@@ -11,12 +11,12 @@ A basic understanding of the following language and concepts:
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
 
 ## Introduction
-In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion from the root directory (1-3), working directory (4), and absolute path (5):
+In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion using absolute (1-3) and relative paths (4-5). 
 1. `/bin/ls -al`
 2. `/bin/ps aux`
 3. `/bin/echo "Hello, World!"`
-5. `/path/to/the/program`
-6. `program1 arg1 arg2 arg3`
+4. `program1 arg1 arg2 arg3`
+5. `./program2 arg1`
 
 The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining.
 
@@ -297,7 +297,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODgxMzQ0MDEsNjc0MTA4ODIzLDg3OT
-AwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYz
-Ml19
+eyJoaXN0b3J5IjpbLTM2MTg1MzkyNyw2NzQxMDg4MjMsODc5MD
+A1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMy
+XX0=
 -->
