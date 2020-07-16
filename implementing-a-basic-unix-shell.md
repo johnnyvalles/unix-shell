@@ -8,6 +8,7 @@ A basic understanding of the following language and concepts:
 * Navigating directories and executing commands with a shell (e.g bash, zsh)
 
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
+
 ## Introduction
 In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion from the root directory (1-3), working directory (4), and absolute path (5):
 1. `/bin/ls -al`
@@ -178,7 +179,6 @@ int builtin_cmd(char** argv) {
 }
 ```
 
-
 ## Run a Program in a Child Process
 By this point, the shell is capabale of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the elected program. Our shell is not capable of running background processes, so instead it will create a child process and halt until the child process has terminated. 
 
@@ -296,6 +296,6 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwOD
-I5MTg2MzJdfQ==
+eyJoaXN0b3J5IjpbODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMz
+Y4MzM0NywyMDgyOTE4NjMyXX0=
 -->
