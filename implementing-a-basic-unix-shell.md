@@ -50,7 +50,7 @@ A shell is a program that can run commands and programs on behalf of a user. Pri
 5. Run a program in a child process
 
 ## Program Set Up
-The shell source code will be written in a single file called `shell.c`. The header files in the code block below must be included in the program to enable I/O and the use of system calls provided by the operating system. Additionally, we need to define two symbolic constants `MAXARGS` and `MAXLINE`. The two will provide an upper bound on the number of characters for arguments a user can provide with a command and the character length of the overall command, respectively.
+The shell source code will be written in a single file called `shell.c`. The header files in the code block below must be included in the program to enable I/O and the use of system calls provided by the operating system. Additionally, we need to define two symbolic constants `MAXARGS` and `MAXLINE`. The two will provide an upper bound on the number of characters for arguments a user can provide and the character length of the overall command, respectively.
 
 ```c
 /* shell.c */
@@ -75,7 +75,7 @@ The shell will be compiled using `gcc` in the following manner:
 ```
 gcc shell.c -o shell
 ```
-For generating an executable object file with debugging information, compile `shell.c` with the `-g` option (e.g. debugging with `gdb`).
+To generate an executable object file with debugging information, compile `shell.c` with the `-g` option (e.g. debugging with `gdb`).
 
 ## Read User Input
 Our shell needs a way to prompt, read, and store input from the user. For now, we assume that all of the inputs will come from `stdin`. Reading whole-line inputs from `stdin` can easily be accomplished using `fgets()`. `fgets()` reads in at most one character less than the specified maximum (i.e. accounts for the NULL character) and includes the newline character. We will need to repeat this process however many times the user wishes. Thus, it is best to write this functionality in a while-loop.
@@ -305,7 +305,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODYzNjAzODYsLTEyNDU2NTc1NjQsLT
-EwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0
-MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMT
+I0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1
+NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX
+0=
 -->
