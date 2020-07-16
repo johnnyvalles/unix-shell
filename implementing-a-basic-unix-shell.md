@@ -283,4 +283,6 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf
 
 http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf
 
+http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
+
 https://en.wikipedia.org/wiki/Unix_shell
