@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXARGS 8
-#define MAXLINE 512
+#define MAXARGS 16
+#define MAXLINE 256
 
 void parse_cmd(char* buf);
 int builtin_cmd(char** buf);
