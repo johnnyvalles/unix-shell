@@ -15,8 +15,8 @@ In this article, you will learn how to implement a basic shell that can be compi
 1. `/bin/ls -al`
 2. `/bin/ps aux`
 3. `/bin/echo "Hello, World!"`
-4. `program1 arg1 arg2 arg3`
 5. `/path/to/the/program`
+6. `program1 arg1 arg2 arg3`
 
 The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining.
 
@@ -297,6 +297,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2Mj
-E0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbLTEwODgxMzQ0MDEsNjc0MTA4ODIzLDg3OT
+AwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYz
+Ml19
 -->
