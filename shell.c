@@ -57,10 +57,10 @@ void parse_cmd(char* buf) {
 }
 
 int builtin_cmd(char** argv) {
-    if (!strcmp(*argv, "exit"))
+    if (!strcmp(*argv, "exit"))                             /* check if typed exit */
         exit(0);
     
-    if (!strcmp(*argv, "help")) {
+    if (!strcmp(*argv, "help")) {                           /* check if typed help */
         printf("Help command.\n");
         return 1;
     }
@@ -69,12 +69,12 @@ int builtin_cmd(char** argv) {
 }
 
 void exec_cmd(char** argv) {
-    if (fork() == 0) {
-        if (execv(*argv, argv) < 0) {
-            printf("%s: unknown command.\n", *argv);
+    if (fork() == 0) {                                      /* create a new process, check if child process */
+        if (execv(*argv, argv) < 0) {                       /* only runs in child process attempts to run program */
+            printf("%s: unknown command.\n", *argv);        /* terminate child process if exec fails */
             exit(0);
         }
     } else {
-        wait(NULL);
+        wait(NULL);                                         /* otherwise parent waits for child process to finish */
     }
 }
