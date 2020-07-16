@@ -27,7 +27,7 @@ The implementation is considered basic due to the inability to run programs in a
 
 However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
 
-Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is to use its manual page, otherwise known as a *man page*. This page can easily be brought up in the following manner right from a terminal:
+Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is to use its manual page, otherwise known as a *man page*. This page can easily be brought up in the following manner right from a shell, other than 
 * `man echo`
 * `man strcmp`
 * `man exevc`
@@ -305,7 +305,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNj
-c0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMz
-NDcsMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbLTU0OTc5NDIzMywtMTI0NTY1NzU2NCwtMT
+AyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQx
+OTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
 -->
