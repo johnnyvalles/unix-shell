@@ -10,6 +10,9 @@ A basic understanding of the following language and concepts:
 
 If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
 
+## Outcomes
+Upon completion of the article, you will have an understanding of the fundamentals of using system calls, operating system interfaces, and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
+
 ## Introduction
 In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion using absolute (1-3) and relative paths (4-5). 
 1. `/bin/ls -al`
@@ -30,16 +33,13 @@ Before proceeding, it is highly recommended to have some form of documentation a
 * `man exevc`
 * `man fork`
 
-Searching for a particular entry in a man page can be done using pipes. The output of the manual entry can be pipelined to  `grep` and the output can optionally be displayed using `less` via a pipe (i.e. using `|` ) or redirected to a file of your choosing (i.e. using `>` or `>>`). 
+Searching for a particular entry in a man page can be done using pipes. The output of the manual entry can be pipelined to  `grep` and the output can optionally be displayed using `less` via a pipe (i.e. using `|` ) or redirected to a file of your choosing (i.e. using `>` or `>>`). Here are a few examples:
 
  * `man fork `
  * `man fork | grep process`
  *  `man execv | grep "list of arguments"`
  * `man wait > kernighan.txt`
- * 1
-
-## Outcomes
-Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces, and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
+ * `man ps >> ritchie.txt`
 
 ## What is a Shell?
 A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
@@ -305,7 +305,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjgxNzk2ODIsLTEwMjU2MjY0NjAsNj
+eyJoaXN0b3J5IjpbLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNj
 c0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMz
 NDcsMjA4MjkxODYzMl19
 -->
