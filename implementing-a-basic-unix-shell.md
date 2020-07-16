@@ -287,9 +287,9 @@ void exec_cmd(char** argv) {
 ```
 
 ## Reaping Child Processes and Avoiding Zombies
-As mentioned in the previous section, `wait()` suspends execution of the calling process until a child process has terminated. Once a child process has terminated, `wait()` also signals to the operating system that the process has completed and no longer has to be kept around in memory. This allows the operating system to `reap` the process. Reaping terminated processes frees up resources and process data structures used during their execution.
+As mentioned in the previous section, `wait()` suspends execution of the calling process until a child process has terminated. Once a child process has terminated, `wait()` also signals to the operating system that the process has completed and no longer has to be kept around in memory. This allows the operating system to *reap* the process. Reaping terminated processes frees up resources and process data structures used during their execution.
 
-If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent it. This state where the process is no longer running but is still in memory is known as a `zombie` state. For processes that have long-running times and spawn multiple children throughout their execution, it is vital that they reap their children to free system resources.
+If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent it. This state where the process is no longer running but is still in memory is known as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, it is vital that they reap their children to free system resources.
 
 In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes from our shell can be accomplished by invoking the `ps` program using an absolute path to its executable file (e.g. `/bin/ps`).
 
@@ -305,8 +305,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1OD
-YzNjAzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4
-ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMj
-A4MjkxODYzMl19
+eyJoaXN0b3J5IjpbLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMj
+k5MTY2MywtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYy
+NjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMT
+EzMzY4MzM0NywyMDgyOTE4NjMyXX0=
 -->
