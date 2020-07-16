@@ -18,7 +18,7 @@ In this article, you will learn how to implement a basic shell that can be compi
 4. `program1 arg1 arg2 arg3`
 5. `./program2 arg1`
 
-When a program name is provied as in example 4 above, our shell will assume the working directory to be that same where its executable file is located.
+When a program name is provied as in example 4 above, our shell will assume the working directory to be that of where its executable file is located.
 
 The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining.
 
@@ -299,7 +299,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzQyMjc0MDMsNjc0MTA4ODIzLDg3OT
+eyJoaXN0b3J5IjpbLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OT
 AwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYz
 Ml19
 -->
