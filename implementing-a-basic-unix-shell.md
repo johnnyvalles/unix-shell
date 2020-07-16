@@ -189,7 +189,7 @@ int builtin_cmd(char** argv) {
 ```
 
 ## Run a Program in a Child Process
-By this point, the shell is capable of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the selected program. Our shell is not capable of running background processes, so instead, it will create a child process and halt until the child process has terminated. 
+By this point, the shell is capable of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the selected program. Our shell creates a child process and halts until the child process has terminated. 
 
 Unix operating systems provide three systems calls that facilitate this form of process control. A brief description of the three follows.
 
@@ -305,7 +305,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3OTgxMjI1NywtNDAyOTkxNjYzLC0xNT
+eyJoaXN0b3J5IjpbMTc3MzUxNzIxMCwtNDAyOTkxNjYzLC0xNT
 g2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEw
 ODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LD
 IwODI5MTg2MzJdfQ==
