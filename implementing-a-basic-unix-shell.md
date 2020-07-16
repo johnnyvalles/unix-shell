@@ -32,7 +32,9 @@ Before proceeding, it is highly recommended to have some form of documentation a
 
 Searching for a particular entry in a man page can be done using pipes. The output of the manual entry can be pipelined to  `grep` and the output can optionally be displayed using `less` via a pipe (i.e. using `|` ) or redirected to a file of your choosing (i.e. using `>` or `>>`). 
 
- -
+ * `man fork `
+ * `man fork | grep process`
+ *  
 
 ## Outcomes
 Upon completion of the article, you will have an understanding of the fundamentals of system calls, operating system interfaces, and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
@@ -301,7 +303,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjU0OTAyMzksLTEwMjU2MjY0NjAsNj
-c0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMz
-NDcsMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbMTY3ODQwODQ3NywtMTAyNTYyNjQ2MCw2Nz
+QxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0
+NywyMDgyOTE4NjMyXX0=
 -->
