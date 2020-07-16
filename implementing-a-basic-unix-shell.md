@@ -35,7 +35,7 @@ Before proceeding, it is highly recommended to have some form of documentation a
 
 Searching for a particular entry in a man page can be done using pipes (i.e. using `|` ) . The output of the manual entry can be pipelined to `grep` and that output can optionally be displayed using `less`  or redirected to a file of your choosing (i.e. using `>` or `>>`). Here are a few examples:
 
- * `man fork `
+ * `man fork`
  * `man fork | grep process`
  *  `man execv | grep "list of arguments"`
  * `man wait > kernighan.txt`
@@ -305,7 +305,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0NDIxNTE5OCwtMTI0NTY1NzU2NCwtMT
-AyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQx
-OTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
+eyJoaXN0b3J5IjpbLTE1ODYzNjAzODYsLTEyNDU2NTc1NjQsLT
+EwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0
+MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
 -->
