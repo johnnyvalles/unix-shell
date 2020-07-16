@@ -27,13 +27,13 @@ The implementation is considered basic due to the inability to run programs in a
 
 However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
 
-Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is to use its manual page, otherwise known as a *man page*. This page can easily be brought up in the following manner right from a shell, other than 
+Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is to use its manual page, otherwise known as a *man page*. This page can easily be brought up in the following manner right from a shell, other than the one we will be writing.
 * `man echo`
 * `man strcmp`
 * `man exevc`
 * `man fork`
 
-Searching for a particular entry in a man page can be done using pipes. The output of the manual entry can be pipelined to  `grep` and the output can optionally be displayed using `less` via a pipe (i.e. using `|` ) or redirected to a file of your choosing (i.e. using `>` or `>>`). Here are a few examples:
+Searching for a particular entry in a man page can be done using pipes (i.e. using `|` ) . The output of the manual entry can be pipelined to `grep` and that output can optionally be displayed using `less`  or redirected to a file of your choosing (i.e. using `>` or `>>`). Here are a few examples:
 
  * `man fork `
  * `man fork | grep process`
@@ -305,7 +305,7 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0OTc5NDIzMywtMTI0NTY1NzU2NCwtMT
+eyJoaXN0b3J5IjpbMTY0NDIxNTE5OCwtMTI0NTY1NzU2NCwtMT
 AyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQx
 OTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
 -->
