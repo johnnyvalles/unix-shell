@@ -12,5 +12,5 @@ progs: $(EXECS)
 	
 .PHONY: clean
 clean:
-	/bin/rm shell
-	/bin/rm -rf $(EXECS)
+	/bin/rm -f shell
+	/bin/rm -rf -f $(EXECS)
