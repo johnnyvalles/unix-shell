@@ -172,7 +172,7 @@ void parse_cmd(char* buf) {
 ## Built-in Commands
 The shell has two built-in commands: `exit` and `help`. These commands are run by the shell process rather than in the context of a child process. `exit` allows a user to terminate the shell if they wish to do so. `help` displays useful information about the shell, such as the version number or a list of built-in commands. 
 
-Thus, the shell needs a way to determine whether the user has typed a built-in command or the name of a program. This functionality is written in the `builtin_cmd()` function, utilizing the `strcmp()` function. If the input is a built-in command, it runs the command and proceeds to return 1, 0 otherwise. The prototype and definition are presented below. The use of the function will be showcased in the next section.
+Thus, the shell needs a way to determine whether the user has typed a built-in command or the name of a program. This functionality is written in the `builtin_cmd()` function, utilizing the `strcmp()` function. If the input is a built-in command, it runs the command and proceeds to return 1, 0 otherwise. The prototype and definition are presented below. The use of the function will be showcased in the next section in `parse_cmd()`.
 
 ```c
 int builtin_cmd(char** buf);
@@ -312,9 +312,9 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU0MzY1MzczLC0xODI5OTEyMzQwLC0xNz
-MzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAz
-ODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLD
-g3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4Mjkx
-ODYzMl19
+eyJoaXN0b3J5IjpbLTExOTgzODY2NDcsLTE4Mjk5MTIzNDAsLT
+E3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4NjM2
+MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMDg4Mj
+MsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0NywyMDgy
+OTE4NjMyXX0=
 -->
