@@ -41,7 +41,7 @@ Searching for a particular entry in a man page can be done using pipes (i.e. usi
  * `man wait > kernighan.txt`
  * `man ps >> ritchie.txt`
 
-All of the code and example programs used in this article are available at [https://github.com/johnnyvalles/unix-shell](https://github.com/johnnyvalles/unix-shell). Feel free to download or fork the repository
+All of the code and example programs used in this article are available at [https://github.com/johnnyvalles/unix-shell](https://github.com/johnnyvalles/unix-shell). Feel free to download or fork the repository. contributions are also accepted by creating a feature branch and submitting a pull request. To quickly compile our shell and example program, 
 
 ## What is a Shell?
 A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
@@ -307,8 +307,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwMzk5MzQ3OCwtMTczMzQ4NTg2LC04OT
-QzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3
-NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODksMT
-U3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MTg2MzJdfQ==
+eyJoaXN0b3J5IjpbLTEwOTA2NjYwMzEsLTE3MzM0ODU4NiwtOD
+k0MzU2MjYsLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMTI0NTY1
+NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LD
+E1NzYyMTQxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
 -->
