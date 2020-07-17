@@ -62,7 +62,8 @@ int builtin_cmd(char** argv) {
     
     if (!strcmp(*argv, "help")) {                           /* check if typed help */
         char *help = 
-        "************************** Shell **************************\n"
+        "************************** Shell "
+        "**************************\n"
         "Built-in commands:\n"
         "\thelp\n"
         "\texit\n"
@@ -71,7 +72,8 @@ int builtin_cmd(char** argv) {
         " prog1 \n\tor ./prog1) assumes the working directory\n"
         "\tto be where the shell executable is located.\n"
         "\tOtherwise an absolute path must be provided.\n"
-        "***********************************************************\n";
+        "***************************"
+        "********************************\n";
         printf("%s", help);
         return 1;
     }
