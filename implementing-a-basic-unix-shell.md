@@ -41,7 +41,7 @@ Searching for a particular entry in a man page can be done using pipes (i.e. usi
  * `man wait > kernighan.txt`
  * `man ps >> ritchie.txt`
 
-All of the code and example programs used in this article are available at [https://github.com/johnnyvalles/unix-shell](https://github.com/johnnyvalles/unix-shell). Feel free to download or fork the repository. Contributions are encouraged, simply create a feature branch and submit a pull request. A Makefile has been provided to quickly compile our shell and example program (i.e. run `make`).
+All of the code and example programs used in this article are available at [https://github.com/johnnyvalles/unix-shell](https://github.com/johnnyvalles/unix-shell). Feel free to download or fork the repository. Contributions are encouraged. Simply create a feature branch and submit a pull request. A Makefile has been provided to quickly compile our shell and example programs (i.e. run `make`).
 
 ## What is a Shell?
 A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
@@ -307,8 +307,8 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTUxODgyMTQ0LC0xNzMzNDg1ODYsLTg5ND
-M1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NTc1
-NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwxNT
-c2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbMjEyNDkwNzkxMSwtMTczMzQ4NTg2LC04OT
+QzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3
+NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODksMT
+U3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MTg2MzJdfQ==
 -->
