@@ -182,7 +182,20 @@ int builtin_cmd(char** argv) {
         exit(0);
     
     if (!strcmp(*argv, "help")) {                           /* check if typed help */
-        printf("Help command.\n");
+        char *help = 
+        "************************** Shell "
+        "**************************\n"
+        "Built-in commands:\n"
+        "\thelp\n"
+        "\texit\n"
+        "\nExternal programs:\n"
+        "\tTyping in the name of a program (e.g."
+        " prog1 \n\tor ./prog1) assumes the working directory\n"
+        "\tto be where the shell executable is located.\n"
+        "\tOtherwise an absolute path must be provided.\n"
+        "***************************"
+        "********************************\n";
+        printf("%s", help);
         return 1;
     }
 
@@ -267,7 +280,20 @@ int builtin_cmd(char** argv) {
         exit(0);
     
     if (!strcmp(*argv, "help")) {                           /* check if typed help */
-        printf("Help command.\n");
+        char *help = 
+        "************************** Shell "
+        "**************************\n"
+        "Built-in commands:\n"
+        "\thelp\n"
+        "\texit\n"
+        "\nExternal programs:\n"
+        "\tTyping in the name of a program (e.g."
+        " prog1 \n\tor ./prog1) assumes the working directory\n"
+        "\tto be where the shell executable is located.\n"
+        "\tOtherwise an absolute path must be provided.\n"
+        "***************************"
+        "********************************\n";
+        printf("%s", help);
         return 1;
     }
 
