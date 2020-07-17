@@ -114,7 +114,7 @@ Since `fgets()` retains the newline character, we need to replace it with a spac
 The parsing functionality is written in the function `parse_cmd()`. This function is also responsible for building the `argv` array, a NULL-terminated array of pointers to NULL-terminated character strings. By convention, the first element of `argv` is the name of the program executable file. The remaining elements, if any, are arguments or options for that program (e.g. `/bin/ls -al`). 
 
 
-The prototype and definition for `parse_cmd()`are presented below.
+The prototype, definition, and usage of `parse_cmd()`are presented below.
 
 ```c
 /* shell.c */
@@ -312,9 +312,9 @@ http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
 
 https://en.wikipedia.org/wiki/Unix_shell
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4NDg2MDE3OCwtMTgyOTkxMjM0MCwtMT
-czMzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYw
-Mzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMy
-w4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5
-MTg2MzJdfQ==
+eyJoaXN0b3J5IjpbMzU0MzY1MzczLC0xODI5OTEyMzQwLC0xNz
+MzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAz
+ODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLD
+g3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4Mjkx
+ODYzMl19
 -->
