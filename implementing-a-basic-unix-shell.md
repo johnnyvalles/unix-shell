@@ -64,8 +64,8 @@ The shell source code will be written in a single file called `shell.c`. The hea
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXARGS 128
-#define MAXLINE 8192
+#define MAXARGS 16
+#define MAXLINE 256
 
 int main() {
 
@@ -92,8 +92,8 @@ Our shell needs a way to prompt, read, and store input from the user. For now, w
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXARGS 128
-#define MAXLINE 8192
+#define MAXARGS 16
+#define MAXLINE 256
 
 int main() {
     char buf[MAXLINE];                                      /* buffer holds user's input */
@@ -126,8 +126,8 @@ The prototype and definition for `parse_cmd()`are presented below.
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXARGS 128
-#define MAXLINE 8192
+#define MAXARGS 16
+#define MAXLINE 256
 
 void parse_cmd(char* buf);
 
@@ -145,26 +145,26 @@ int main() {
 void parse_cmd(char* buf) {
     char* argv[MAXARGS];                                    /* argument vector */
     char* del;                                              /* delimiter pointer */
-    int i;                                                  /* holds number of arguments parsed (argc) */
+    int argc;                                               /* number of arguments parsed */
     
     buf[strlen(buf) - 1] = ' ';                             /* replace '\n' with a space */
     
     while (buf && (*buf == ' '))                            /* ignore leading spaces */
         ++buf;
     
-    i = 0;
+    argc = 0;
     while ((del = strchr(buf, ' '))) {                      /* construct argv */
         *del = '\0';
-        argv[i++] = buf; 
+        argv[argc++] = buf; 
         buf = del + 1;
         
         while (buf && (*buf == ' '))                        /* ignore leading spaces */
             ++buf;
     }
 
-    argv[i] = NULL;                                         /* NULL-terminate argv */
+    argv[argc] = NULL;                                      /* NULL-terminate argv */
     
-    if (i == 0)
+    if (argc == 0)                                          /* empty line */
         return;
 }
 ```
@@ -178,10 +178,10 @@ Thus, the shell needs a way to determine whether the user has typed a built-in c
 int builtin_cmd(char** buf);
 
 int builtin_cmd(char** argv) {
-    if (!strcmp(*argv, "exit"))
+    if (!strcmp(*argv, "exit"))                             /* check if typed exit */
         exit(0);
     
-    if (!strcmp(*argv, "help")) {
+    if (!strcmp(*argv, "help")) {                           /* check if typed help */
         printf("Help command.\n");
         return 1;
     }
@@ -213,13 +213,11 @@ Recall that the scheduler decides when either the parent or child process runs. 
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXARGS 128
-#define MAXLINE 8192
+#define MAXARGS 16
+#define MAXLINE 256
 
 void parse_cmd(char* buf);
-
 int builtin_cmd(char** buf);
-
 void exec_cmd(char** argv);
 
 int main() {
@@ -265,10 +263,10 @@ void parse_cmd(char* buf) {
 }
 
 int builtin_cmd(char** argv) {
-    if (!strcmp(*argv, "exit"))
+    if (!strcmp(*argv, "exit"))                             /* check if typed exit */
         exit(0);
     
-    if (!strcmp(*argv, "help")) {
+    if (!strcmp(*argv, "help")) {                           /* check if typed help */
         printf("Help command.\n");
         return 1;
     }
@@ -277,13 +275,20 @@ int builtin_cmd(char** argv) {
 }
 
 void exec_cmd(char** argv) {
-    if (fork() == 0) {
-        if (execv(*argv, argv) < 0) {
-            printf("%s: unknown command.\n", *argv);
+    pid_t pid = fork();
+
+    if (pid < 0) {                                          /* check if fork failed */
+        fprintf(stderr, "fork error.\n");                   /* terminate shell if fork failed */ 
+        exit(0);
+    } else if (pid == 0) {                                  /* create a new process, check if child process */
+        if (execv(*argv, argv) < 0) {                       /* only runs in child process attempts to run program */
+            fprintf(stderr,                                 /* terminate child process if exec fails */
+                    "%s: unknown command.\n", 
+                    *argv);
             exit(0);
         }
     } else {
-        wait(NULL);
+        wait(NULL);                                         /* otherwise parent waits for child process to finish */
     }
 }
 ```
