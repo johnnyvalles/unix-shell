@@ -357,7 +357,19 @@ johnny@dev-vm unix-shell % ./shell
 Done sleeping.
 ```
 
-After `sleepy` has completed, run `ps` using an absolute path.
+After `sleepy` has completed, run `ps` using an absolute path. This will produce output similar to the following:
+```
+johnny@dev-vm unix-shell % ./shell
+>>> progs/sleepy
+>>> About to sleep.
+Done sleeping.
+/bin/ps
+>>> PID TTY TIME CMD
+12701 ttys001  0:00.14 -zsh
+13111 ttys001  0:00.00 ./shell
+13113 ttys001  0:00.00 (sleepy)
+11748 ttys002  0:00.11 /bin/bash -l
+```
 
 
 ## Additional Reading & Sources
@@ -366,7 +378,7 @@ After `sleepy` has completed, run `ps` using an absolute path.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMTM3NjE4NiwtMjk4MjIyODM2LC0xNz
+eyJoaXN0b3J5IjpbLTk5NDc3MDk3NCwtMjk4MjIyODM2LC0xNz
 U4NzkxNzE2LC0yMDQzNzQxOTQ4LC05Mzk0NTkzNTEsLTExOTgz
 ODY2NDcsLTE4Mjk5MTIzNDAsLTE3MzM0ODU4NiwtODk0MzU2Mj
 YsLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwt
