@@ -1,3 +1,8 @@
+/*
+    Program: tictactoe.c
+    text-based two-player tic tac toe.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
