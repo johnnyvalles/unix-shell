@@ -345,8 +345,8 @@ To remove all executables, run `make clean`.
 
 Go ahead and clear the screen and run the compiled shell program. If everything has compiled without errors up to this point, you will be prompted with `>>>`.
 ```
-johnny@dev-vm unix-shell % ./shell
->>>
+johnny@dev-vm:~/Desktop/unix-shell$ ./shell
+>>> 
 ```
 
 Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If at any point after running a program you are greeted with blank line with a flashing cursor, hit `enter` or `return`. This causes the shell to read in an empty line, ignores it, and reprompts with `>>>`.
@@ -381,7 +381,7 @@ Done sleeping.
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0ODMxMjAzLC05Mjk1MjAyMjgsLTk5ND
+eyJoaXN0b3J5IjpbNDE0MTczMDQ0LC05Mjk1MjAyMjgsLTk5ND
 c3MDk3NCwtMjk4MjIyODM2LC0xNzU4NzkxNzE2LC0yMDQzNzQx
 OTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5MTIzND
 AsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4
