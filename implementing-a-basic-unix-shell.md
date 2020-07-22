@@ -349,7 +349,7 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
-Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If
+Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If at any point after running a program you are greeted with blank line with a flashing cursure, hit `enter` or `return` so that the shell reads in an empty line, irgnores it, and reprompts with `>>>`.
 ```
 johnny@dev-vm unix-shell % ./shell
 >>> progs/sleepy
@@ -381,11 +381,11 @@ Done sleeping.
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1MTM5MTI3NywtOTk0NzcwOTc0LC0yOT
-gyMjI4MzYsLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1
-OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NT
-g2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0x
-MjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMD
-U0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MTg2MzJd
-fQ==
+eyJoaXN0b3J5IjpbNzg2NDAxNjUyLC05OTQ3NzA5NzQsLTI5OD
+IyMjgzNiwtMTc1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5
+MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1OD
+YsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEy
+NDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNT
+Q4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
+
 -->
