@@ -331,6 +331,16 @@ This section will make use of the `ps` program to demonstrate what happens if th
 
 Begin by opening up a terminal and navigating to the directory where the shell source file is located. Ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any programs included in `progs/`.
 
+```
+johnny@dev-vm ~ % cd Desktop/unix-shell
+johnny@dev-vm unix-shell % make
+gcc  shell.c -o shell
+gcc progs/args.c -o progs/args
+gcc progs/hello.c -o progs/hello
+gcc progs/sleepy.c -o progs/sleepy
+gcc progs/tictactoe.c -o progs/tictactoe
+johnny@dev-vm-MacBook-Pro unix-shell %
+```
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -338,10 +348,10 @@ Begin by opening up a terminal and navigating to the directory where the shell s
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4Njc4NjIwNSwtMjA0Mzc0MTk0OCwtOT
-M5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMz
-NDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzOD
-YsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3
-OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxOD
-YzMl19
+eyJoaXN0b3J5IjpbLTIwMTg4OTcwMzksLTIwNDM3NDE5NDgsLT
+kzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTcz
+MzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMz
+g2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4
+NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MT
+g2MzJdfQ==
 -->
