@@ -368,7 +368,7 @@ After `sleepy` has completed, run `ps` using an absolute path. This will produce
   3657 pts/0    00:00:00 sleepy <defunct>
   3658 pts/0    00:00:00 ps
 ```
-Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not be too serious for our simple unix shell, however, as mentioned in a previous section, long running processes that spawn multiple child processes should always reap there terminated children to avoid uncessary consumption of system resources.
+Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not seem too serious for our simple unix shell. Unfortunately, as mentioned in a previous section, long running processes that spawn multiple child processes should always reap there terminated children to avoid uncessary consumption of system resources.
 
 
 ## Additional Reading & Sources
@@ -380,11 +380,11 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNDg4NzAxNiw3NzA4NjMzOTEsLTkyOT
-UyMDIyOCwtOTk0NzcwOTc0LC0yOTgyMjI4MzYsLTE3NTg3OTE3
-MTYsLTIwNDM3NDE5NDgsLTkzOTQ1OTM1MSwtMTE5ODM4NjY0Ny
-wtMTgyOTkxMjM0MCwtMTczMzQ4NTg2LC04OTQzNTYyNiwtNDAy
-OTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1Nj
-I2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5Mywx
-MTMzNjgzMzQ3XX0=
+eyJoaXN0b3J5IjpbLTE1ODIyNTQxODMsLTcyNDg4NzAxNiw3Nz
+A4NjMzOTEsLTkyOTUyMDIyOCwtOTk0NzcwOTc0LC0yOTgyMjI4
+MzYsLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1OTM1MS
+wtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NTg2LC04
+OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1Nj
+U3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODks
+MTU3NjIxNDE5M119
 -->
