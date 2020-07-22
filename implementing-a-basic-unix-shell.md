@@ -368,7 +368,7 @@ After `sleepy` has completed, run `ps` using an absolute path. This will produce
   3657 pts/0    00:00:00 sleepy <defunct>
   3658 pts/0    00:00:00 ps
 ```
-Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not seem too serious for our simple unix shell. Unfortunately, as mentioned in a previous section, long running processes that spawn multiple child processes should always reap there terminated children to avoid uncessary consumption of system resources.
+Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not seem too serious for our simple unix shell. Unfortunately, as mentioned in a previous section, long running processes that spawn multiple child processes should always reap their terminated children to avoid uncessary consumption of system resources.
 
 
 ## Additional Reading & Sources
@@ -380,11 +380,11 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODIyNTQxODMsLTcyNDg4NzAxNiw3Nz
-A4NjMzOTEsLTkyOTUyMDIyOCwtOTk0NzcwOTc0LC0yOTgyMjI4
-MzYsLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1OTM1MS
-wtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NTg2LC04
-OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1Nj
-U3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODks
-MTU3NjIxNDE5M119
+eyJoaXN0b3J5IjpbLTE2MjAxODkyOSwtNzI0ODg3MDE2LDc3MD
+g2MzM5MSwtOTI5NTIwMjI4LC05OTQ3NzA5NzQsLTI5ODIyMjgz
+NiwtMTc1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC
+0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1ODYsLTg5
+NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NT
+c1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwx
+NTc2MjE0MTkzXX0=
 -->
