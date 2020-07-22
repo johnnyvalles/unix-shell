@@ -341,7 +341,10 @@ gcc progs/sleepy.c -o progs/sleepy
 gcc progs/tictactoe.c -o progs/tictactoe
 johnny@dev-vm unix-shell %
 ```
-`
+To remove all executables, run `make clean`.
+
+Go ahead and clear the screen and run the compiled shell program. 
+
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -349,10 +352,10 @@ johnny@dev-vm unix-shell %
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0Mjc3Mjc2NiwtMjA0Mzc0MTk0OCwtOT
-M5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMz
-NDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzOD
-YsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3
-OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcsMjA4MjkxOD
-YzMl19
+eyJoaXN0b3J5IjpbLTE5NDA5MTMwNzUsLTIwNDM3NDE5NDgsLT
+kzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTcz
+MzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMz
+g2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4
+NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MT
+g2MzJdfQ==
 -->
