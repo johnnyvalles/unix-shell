@@ -329,14 +329,16 @@ In the final code block of the previous section, it is possible to remove the `w
 ## Zombie Process Example (optional)
 This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please reference its man page. Moreover, the repository for this article contains example programs and a Makefile to compile all of the programs. A description of what each program does is given in their respective source file.  
 
-Begin by navigating to the directory where the shell source file is located and ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any additional
+Begin by navigating to the directory where the shell source file is located and ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any programs included in `progs/`.
+
+
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf)
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4OTEzNTcwOCwtMjA0Mzc0MTk0OCwtOT
+eyJoaXN0b3J5IjpbLTMyMTMzNDI4MywtMjA0Mzc0MTk0OCwtOT
 M5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMz
 NDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzOD
 YsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3
