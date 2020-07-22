@@ -349,7 +349,7 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
-Run some of the example programs. Please note that becase the shell no longer calls `wait()`, the output and input prompts may be out of  
+Run some of the example programs. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the  
 ```
 johnny@dev-vm unix-shell % ./shell
 >>> progs/hello
@@ -372,10 +372,10 @@ Done sleeping.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwOTQ1ODcyNSwtMjk4MjIyODM2LC0xNz
-U4NzkxNzE2LC0yMDQzNzQxOTQ4LC05Mzk0NTkzNTEsLTExOTgz
-ODY2NDcsLTE4Mjk5MTIzNDAsLTE3MzM0ODU4NiwtODk0MzU2Mj
-YsLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwt
-MTAyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMT
-QxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
+eyJoaXN0b3J5IjpbLTIwNzI5MzQzNTQsLTI5ODIyMjgzNiwtMT
+c1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC0xMTk4
+Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1ODYsLTg5NDM1Nj
+I2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NTc1NjQs
+LTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2Mj
+E0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
 -->
