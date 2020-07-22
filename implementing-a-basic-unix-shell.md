@@ -349,6 +349,9 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
+Let's go ahead and run some of our example programs.
+
+
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -356,7 +359,7 @@ johnny@dev-vm unix-shell % ./shell
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc0ODUyNzAyLC0xNzU4NzkxNzE2LC0yMD
+eyJoaXN0b3J5IjpbMjAwODMzMzI4LC0xNzU4NzkxNzE2LC0yMD
 QzNzQxOTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5
 MTIzNDAsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2My
 wtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2
