@@ -349,7 +349,7 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
-Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching.
+Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If
 ```
 johnny@dev-vm unix-shell % ./shell
 >>> progs/sleepy
@@ -381,7 +381,7 @@ Done sleeping.
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2MzU2ODM2NCwtOTk0NzcwOTc0LC0yOT
+eyJoaXN0b3J5IjpbMTU1MTM5MTI3NywtOTk0NzcwOTc0LC0yOT
 gyMjI4MzYsLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1
 OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NT
 g2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0x
