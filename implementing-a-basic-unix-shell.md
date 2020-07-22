@@ -349,21 +349,15 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
-Run some of the example programs. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching.
+Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching.
 ```
-johnny@dev-vm unix-shell % ./shell
->>> progs/hello
-What is your name? Johnny
-Hello, Johnny. Nice to meet you!
->>> ./progs/args fizz buzz
-argc: 3
-argv[0]: ./progs/args
-argv[1]: fizz
-argv[2]: buzz
->>> progs/sleepy 10
-About to sleep.
+johnnyvalles@Johnnys-MacBook-Pro unix-shell % ./shell
+
+>>> progs/sleepy
+
+>>> About to sleep.
+
 Done sleeping.
->>>
 ```
 
 ## Additional Reading & Sources
@@ -372,7 +366,7 @@ Done sleeping.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODUyMzYyMTksLTI5ODIyMjgzNiwtMT
+eyJoaXN0b3J5IjpbLTE5Nzg1NTIyNzAsLTI5ODIyMjgzNiwtMT
 c1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC0xMTk4
 Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1ODYsLTg5NDM1Nj
 I2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NTc1NjQs
