@@ -1,4 +1,5 @@
 
+
 # Implementing a Basic Unix Shell
 
 ## Prerequisites
@@ -21,7 +22,7 @@ In this article, you will learn how to implement a basic shell that can be compi
 4. `program1 arg1 arg2 arg3`
 5. `./program2 arg1`
 
-When a program name is provied as in example 4 above, our shell will assume the working directory to be that of where its executable file is located.
+When a program name is provided as in example 4 above, our shell will assume the working directory to be that of where its executable file is located.
 
 The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining.
 
@@ -44,7 +45,7 @@ Searching for a particular entry in a man page can be done using pipes (i.e. usi
 All of the code and example programs used in this article are available at [https://github.com/johnnyvalles/unix-shell](https://github.com/johnnyvalles/unix-shell). Feel free to download or fork the repository. Contributions are encouraged. Simply create a feature branch and submit a pull request. A Makefile has been provided to quickly compile the shell and example programs (i.e. run `make`).
 
 ## What is a Shell?
-A shell is a program that can run commands and programs on behalf of a user. Prior to the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
+A shell is a program that can run commands and programs on behalf of a user. Before the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
 1. Program set up
 2. Read user input
 3. Evaluate user input
@@ -204,7 +205,7 @@ int builtin_cmd(char** argv) {
 ```
 
 ## Run a Program in a Child Process
-By this point, the shell is capable of distinguishing built-in commands from external programs. In the event that the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the selected program. Our shell creates a child process and halts until the child process has terminated. 
+By this point, the shell is capable of distinguishing built-in commands from external programs. If the user has elected to run a program (e.g. `/bin/ls`), we will need to create a child process that will have its address space overwritten with that of the selected program. Our shell creates a child process and halts until the child process has terminated. 
 
 Unix operating systems provide three systems calls that facilitate this form of process control. A brief description of the three follows.
 
@@ -214,7 +215,7 @@ Unix operating systems provide three systems calls that facilitate this form of 
 
 Executing the specified program in the context of a new process is handled by the `exec_cmd()` function, which is invoked from `parse_cmd()`. This is where the shell's abilities begin to shine by utilizing the three systems calls introduced in the *Prerequisites* section. If `exec_cmd()` fails to run the program specified by the path in `argv[0]`, an error message is printed from the child process to `stdout` and then terminates. 
 
-Recall that the scheduler decides when either the parent or child process runs. Therefore, it is possible for the parent to run first and then the child or vice-versa. However, the parent process can be halted until a child process it spawned has terminated by using `wait()`. That way if the parent process runs first, it immediately halts. 
+Recall that the scheduler decides when either the parent or child process runs. Therefore, the parent can run first, and then the child or vice-versa. However, the parent process can be halted until a child process it spawned has terminated by using `wait()`. That way if the parent process runs first, it immediately halts. 
 
 ```c
 /* shell.c */
@@ -322,14 +323,14 @@ void exec_cmd(char** argv) {
 ## Reaping Child Processes and Avoiding Zombies
 As mentioned in the previous section, `wait()` suspends execution of the calling process until a child process has terminated. Once a child process has terminated, `wait()` also signals to the operating system that the process has completed and no longer has to be kept around in memory. This allows the operating system to *reap* the process. Reaping terminated processes frees up resources and process data structures used during their execution.
 
-If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent it. This state where the process is no longer running but is still in memory is known as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, it is vital that they reap their children to free system resources.
+If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources used to represent it. This state where the process is no longer running but is still in memory is known as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to free system resources.
 
 In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes from our shell can be accomplished by invoking the `ps` program using an absolute path to its executable file (e.g. `/bin/ps`).
 
 ## Zombie Process Example (optional)
-This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please refer to its man page. Moreover, the repository for this article contains example programs and a Makefile to compile them all. A description of what each program does is given in their respective source file. In order to continue smoothly, it is recommended to clone or download the repository contents.
+This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please refer to its man page. Moreover, the repository for this article contains example programs and a Makefile to compile them all. A description of what each program does is given in their respective source file. To continue smoothly, it is recommended to clone or download the repository contents.
 
-Begin by opening up a terminal and navigating to the directory where the shell source file is located. Ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any programs included in `progs/`. 
+Begin by opening up a terminal and navigating to the directory where the shell source file is located. Ensure that the directory contains the makefile and `progs/` directory as in the repository. Finally, run make which will compile the shell and any programs located in `progs/`. 
 
 ```
 johnny@dev-vm:~/Desktop/unix-shell$ make
@@ -349,7 +350,7 @@ johnny@dev-vm:~/Desktop/unix-shell$ ./shell
 >>> 
 ```
 
-Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If at any point after running a program you are greeted with blank line with a flashing cursor, hit `enter` or `return`. This causes the shell to read in an empty line, ignores it, and reprompts with `>>>`.
+Run the `sleepy` program from the shell. Please note that because the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If at any point after running a program you are greeted with a blank line with a flashing cursor, hit `enter` or `return`. This causes the shell to read in an empty line, ignores it, and prompts with `>>>`.
 ```
 johnny@dev-vm:~/Desktop/unix-shell$ ./shell
 >>> progs/sleepy 3
@@ -368,8 +369,7 @@ After `sleepy` has completed, run `ps` using an absolute path. This will produce
   3657 pts/0    00:00:00 sleepy <defunct>
   3658 pts/0    00:00:00 ps
 ```
-Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not seem too serious for our simple unix shell. Unfortunately, as mentioned in a previous section, long running processes that spawn multiple child processes should always reap their terminated children to avoid uncessary consumption of system resources.
-
+Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long-running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not seem too serious for our simple Unix shell. Unfortunately, as mentioned in a previous section, long-running processes that spawn multiple child processes should always reap their terminated children to avoid unnecessary consumption of system resources.
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -380,11 +380,11 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjAxODkyOSwtNzI0ODg3MDE2LDc3MD
-g2MzM5MSwtOTI5NTIwMjI4LC05OTQ3NzA5NzQsLTI5ODIyMjgz
-NiwtMTc1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC
-0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1ODYsLTg5
-NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NT
-c1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwx
-NTc2MjE0MTkzXX0=
+eyJoaXN0b3J5IjpbLTIwMzkyMTU4NzIsLTE2MjAxODkyOSwtNz
+I0ODg3MDE2LDc3MDg2MzM5MSwtOTI5NTIwMjI4LC05OTQ3NzA5
+NzQsLTI5ODIyMjgzNiwtMTc1ODc5MTcxNiwtMjA0Mzc0MTk0OC
+wtOTM5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMzQwLC0x
+NzMzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1ODYzNj
+AzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MTA4ODIz
+LDg3OTAwNTQ4OV19
 -->
