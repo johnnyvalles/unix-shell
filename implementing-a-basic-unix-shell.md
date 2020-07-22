@@ -349,7 +349,7 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
-Run some of the example programs. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching.  However,
+Run some of the example programs. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching.
 ```
 johnny@dev-vm unix-shell % ./shell
 >>> progs/hello
@@ -372,7 +372,7 @@ Done sleeping.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTc0NzEwNjUsLTI5ODIyMjgzNiwtMT
+eyJoaXN0b3J5IjpbLTEyODUyMzYyMTksLTI5ODIyMjgzNiwtMT
 c1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC0xMTk4
 Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1ODYsLTg5NDM1Nj
 I2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NTc1NjQs
