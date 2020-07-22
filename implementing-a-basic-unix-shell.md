@@ -351,14 +351,14 @@ johnny@dev-vm unix-shell % ./shell
 
 Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching.
 ```
-johnnyvalles@Johnnys-MacBook-Pro unix-shell % ./shell
-
+johnny@dev-vm unix-shell % ./shell
 >>> progs/sleepy
-
 >>> About to sleep.
-
 Done sleeping.
 ```
+
+After `sleepy` has completed, run `ps` using an absolute path.
+
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -366,10 +366,10 @@ Done sleeping.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Nzg1NTIyNzAsLTI5ODIyMjgzNiwtMT
-c1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC0xMTk4
-Mzg2NjQ3LC0xODI5OTEyMzQwLC0xNzMzNDg1ODYsLTg5NDM1Nj
-I2LC00MDI5OTE2NjMsLTE1ODYzNjAzODYsLTEyNDU2NTc1NjQs
-LTEwMjU2MjY0NjAsNjc0MTA4ODIzLDg3OTAwNTQ4OSwxNTc2Mj
-E0MTkzLDExMzM2ODMzNDcsMjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbMjEyMTM3NjE4NiwtMjk4MjIyODM2LC0xNz
+U4NzkxNzE2LC0yMDQzNzQxOTQ4LC05Mzk0NTkzNTEsLTExOTgz
+ODY2NDcsLTE4Mjk5MTIzNDAsLTE3MzM0ODU4NiwtODk0MzU2Mj
+YsLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwt
+MTAyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMT
+QxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
 -->
