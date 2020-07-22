@@ -349,9 +349,9 @@ johnny@dev-vm unix-shell % ./shell
 >>>
 ```
 
-Let's go ahead and run some of our example programs.
+Run some of the example programs.
 ```
-johnnyvalles@Johnnys-MacBook-Pro unix-shell % ./shell
+johnny@dev-vm unix-shell % ./shell
 >>> progs/hello
 What is your name? Johnny
 Hello, Johnny. Nice to meet you!
@@ -363,7 +363,6 @@ argv[2]: buzz
 >>> progs/sleepy 10
 About to sleep.
 Done sleeping.
-
 >>>
 ```
 
@@ -374,10 +373,10 @@ Done sleeping.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM2NjQ2MDA2LC0xNzU4NzkxNzE2LC0yMD
-QzNzQxOTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5
-MTIzNDAsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2My
-wtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2
-NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4Mz
-M0NywyMDgyOTE4NjMyXX0=
+eyJoaXN0b3J5IjpbLTEwMzQwNDY2MjYsLTE3NTg3OTE3MTYsLT
+IwNDM3NDE5NDgsLTkzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMTgy
+OTkxMjM0MCwtMTczMzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNj
+YzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYw
+LDY3NDEwODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNj
+gzMzQ3LDIwODI5MTg2MzJdfQ==
 -->
