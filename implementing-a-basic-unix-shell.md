@@ -327,7 +327,7 @@ If `wait()` is not called then the child process will run but once terminated, w
 In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes from our shell can be accomplished by invoking the `ps` program using an absolute path to its executable file (e.g. `/bin/ps`).
 
 ## Zombie Process Example (optional)
-This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please reference its man page. Moreover, the repository for this article contains example programs and a Makefile to compile all of the programs. A description of what each program does is given in their respective source file.  
+This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please refer to its man page. Moreover, the repository for this article contains example programs and a Makefile to compile all of the programs. A description of what each program does is given in their respective source file.  
 
 Begin by opening up a terminal and navigating to the directory where the shell source file is located. Ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any programs included in `progs/`. 
 
@@ -356,10 +356,10 @@ johnny@dev-vm unix-shell % ./shell
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLT
-kzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTcz
-MzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMz
-g2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4
-NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MT
-g2MzJdfQ==
+eyJoaXN0b3J5IjpbLTE1MzQ4ODM4ODIsLTE3NTg3OTE3MTYsLT
+IwNDM3NDE5NDgsLTkzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMTgy
+OTkxMjM0MCwtMTczMzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNj
+YzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYw
+LDY3NDEwODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMzNj
+gzMzQ3LDIwODI5MTg2MzJdfQ==
 -->
