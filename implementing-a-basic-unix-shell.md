@@ -332,14 +332,14 @@ This section will make use of the `ps` program to demonstrate what happens if th
 Begin by opening up a terminal and navigating to the directory where the shell source file is located. Ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any programs included in `progs/`. 
 
 ```
-johnny@dev-vm ~ % cd Desktop/unix-shell
-johnny@dev-vm unix-shell % make
+johnny@dev-vm:~/Desktop/unix-shell$ make
 gcc  shell.c -o shell
-gcc progs/args.c -o progs/args
-gcc progs/hello.c -o progs/hello
-gcc progs/sleepy.c -o progs/sleepy
-gcc progs/tictactoe.c -o progs/tictactoe
-johnny@dev-vm unix-shell %
+gcc     progs/sleepy.c   -o progs/sleepy
+gcc     progs/hello.c   -o progs/hello
+gcc     progs/tictactoe.c   -o progs/tictactoe
+gcc     progs/args.c   -o progs/args
+johnny@dev-vm:~/Desktop/unix-shell$ 
+
 ```
 To remove all executables, run `make clean`.
 
@@ -381,11 +381,11 @@ Done sleeping.
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyOTUyMDIyOCwtOTk0NzcwOTc0LC0yOT
-gyMjI4MzYsLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1
-OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NT
-g2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0x
-MjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMD
-U0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MTg2MzJd
-fQ==
+eyJoaXN0b3J5IjpbMTE0ODMxMjAzLC05Mjk1MjAyMjgsLTk5ND
+c3MDk3NCwtMjk4MjIyODM2LC0xNzU4NzkxNzE2LC0yMDQzNzQx
+OTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5MTIzND
+AsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4
+NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMD
+g4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0Nywy
+MDgyOTE4NjMyXX0=
 -->
