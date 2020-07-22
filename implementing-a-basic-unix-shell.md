@@ -361,17 +361,15 @@ Done sleeping.
 
 After `sleepy` has completed, run `ps` using an absolute path. This will produce output similar to the following:
 ```
-johnny@dev-vm unix-shell % ./shell
->>> progs/sleepy
->>> About to sleep.
-Done sleeping.
-/bin/ps
->>> PID TTY TIME CMD
-12701 ttys001  0:00.14 -zsh
-13111 ttys001  0:00.00 ./shell
-13113 ttys001  0:00.00 (sleepy)
-11748 ttys002  0:00.11 /bin/bash -l
+>>> /bin/ps
+>>>    PID TTY          TIME CMD
+  2490 pts/0    00:00:00 bash
+  3656 pts/0    00:00:00 shell
+  3657 pts/0    00:00:00 sleepy <defunct>
+  3658 pts/0    00:00:00 ps
 ```
+
+Notive that the process with PID of 3657 is in a `<def
 
 
 ## Additional Reading & Sources
@@ -383,11 +381,11 @@ Done sleeping.
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNzk5MTc4OCwtOTI5NTIwMjI4LC05OT
-Q3NzA5NzQsLTI5ODIyMjgzNiwtMTc1ODc5MTcxNiwtMjA0Mzc0
-MTk0OCwtOTM5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMz
-QwLC0xNzMzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1
-ODYzNjAzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MT
-A4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcs
-MjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbNDk2Mjc2NDg2LC05Mjk1MjAyMjgsLTk5ND
+c3MDk3NCwtMjk4MjIyODM2LC0xNzU4NzkxNzE2LC0yMDQzNzQx
+OTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5MTIzND
+AsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4
+NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMD
+g4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0Nywy
+MDgyOTE4NjMyXX0=
 -->
