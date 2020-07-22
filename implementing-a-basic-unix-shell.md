@@ -368,8 +368,7 @@ After `sleepy` has completed, run `ps` using an absolute path. This will produce
   3657 pts/0    00:00:00 sleepy <defunct>
   3658 pts/0    00:00:00 ps
 ```
-
-Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombi
+Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. 
 
 
 ## Additional Reading & Sources
@@ -381,7 +380,7 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NTIyMjE5NywtOTI5NTIwMjI4LC05OT
+eyJoaXN0b3J5IjpbLTg3MDY1MzQ0NCwtOTI5NTIwMjI4LC05OT
 Q3NzA5NzQsLTI5ODIyMjgzNiwtMTc1ODc5MTcxNiwtMjA0Mzc0
 MTk0OCwtOTM5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMz
 QwLC0xNzMzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1
