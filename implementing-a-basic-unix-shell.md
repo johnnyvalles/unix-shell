@@ -327,7 +327,7 @@ If `wait()` is not called then the child process will run but once terminated, w
 In the final code block of the previous section, it is possible to remove the `wait()` call to further understand the concepts of reaping zombie children. Removing the call produces child processes that are in a `zombie` state and can be examined right from the shell. Checking for zombie processes from our shell can be accomplished by invoking the `ps` program using an absolute path to its executable file (e.g. `/bin/ps`).
 
 ## Zombie Process Example (optional)
-This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please refer to its man page. Moreover, the repository for this article contains example programs and a Makefile to compile all of the programs. A description of what each program does is given in their respective source file. In order to continue smoothly, it is recommended to clone or download the repository contents.
+This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please refer to its man page. Moreover, the repository for this article contains example programs and a Makefile to compile them all. A description of what each program does is given in their respective source file. In order to continue smoothly, it is recommended to clone or download the repository contents.
 
 Begin by opening up a terminal and navigating to the directory where the shell source file is located. Ensure that the directory contains the makefile and programs directory as in the repository. Finally, run make which will compile the shell and any programs included in `progs/`. 
 
@@ -380,11 +380,11 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcwODYzMzkxLC05Mjk1MjAyMjgsLTk5ND
-c3MDk3NCwtMjk4MjIyODM2LC0xNzU4NzkxNzE2LC0yMDQzNzQx
-OTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5MTIzND
-AsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4
-NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMD
-g4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0Nywy
-MDgyOTE4NjMyXX0=
+eyJoaXN0b3J5IjpbLTcyNDg4NzAxNiw3NzA4NjMzOTEsLTkyOT
+UyMDIyOCwtOTk0NzcwOTc0LC0yOTgyMjI4MzYsLTE3NTg3OTE3
+MTYsLTIwNDM3NDE5NDgsLTkzOTQ1OTM1MSwtMTE5ODM4NjY0Ny
+wtMTgyOTkxMjM0MCwtMTczMzQ4NTg2LC04OTQzNTYyNiwtNDAy
+OTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1Nj
+I2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5Mywx
+MTMzNjgzMzQ3XX0=
 -->
