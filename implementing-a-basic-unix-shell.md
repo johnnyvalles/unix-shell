@@ -343,7 +343,11 @@ johnny@dev-vm unix-shell %
 ```
 To remove all executables, run `make clean`.
 
-Go ahead and clear the screen and run the compiled shell program. 
+Go ahead and clear the screen and run the compiled shell program. If everything has compiled without errors up to this point, you will be prompted with `>>>`.
+```
+johnny@dev-vm unix-shell % ./shell
+>>>
+```
 
 
 ## Additional Reading & Sources
@@ -352,7 +356,7 @@ Go ahead and clear the screen and run the compiled shell program.
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDA5MTMwNzUsLTIwNDM3NDE5NDgsLT
+eyJoaXN0b3J5IjpbLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLT
 kzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTcz
 MzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMz
 g2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4
