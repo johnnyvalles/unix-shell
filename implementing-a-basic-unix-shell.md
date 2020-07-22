@@ -374,14 +374,18 @@ Done sleeping.
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
+
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf)
+
 [http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
+
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NDc3MDk3NCwtMjk4MjIyODM2LC0xNz
-U4NzkxNzE2LC0yMDQzNzQxOTQ4LC05Mzk0NTkzNTEsLTExOTgz
-ODY2NDcsLTE4Mjk5MTIzNDAsLTE3MzM0ODU4NiwtODk0MzU2Mj
-YsLTQwMjk5MTY2MywtMTU4NjM2MDM4NiwtMTI0NTY1NzU2NCwt
-MTAyNTYyNjQ2MCw2NzQxMDg4MjMsODc5MDA1NDg5LDE1NzYyMT
-QxOTMsMTEzMzY4MzM0NywyMDgyOTE4NjMyXX0=
+eyJoaXN0b3J5IjpbMTA2MzU2ODM2NCwtOTk0NzcwOTc0LC0yOT
+gyMjI4MzYsLTE3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1
+OTM1MSwtMTE5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NT
+g2LC04OTQzNTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0x
+MjQ1NjU3NTY0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMD
+U0ODksMTU3NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MTg2MzJd
+fQ==
 -->
