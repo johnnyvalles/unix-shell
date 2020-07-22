@@ -368,7 +368,7 @@ After `sleepy` has completed, run `ps` using an absolute path. This will produce
   3657 pts/0    00:00:00 sleepy <defunct>
   3658 pts/0    00:00:00 ps
 ```
-Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. 
+Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy` program ran and terminated, but it was never reaped by its parent process (i.e. our shell) and it is now a zombie. Thus, although it is no long running, it is still consuming system resources. Running the `ps` program once more will also list the previous `ps` instance as defunct. This may not be too serious for our simple unix shell, however, as mentioned in a previous section, long running processes that spawn multiple child processes should always reap there terminated children to avoid uncessary consumption of system resources.
 
 
 ## Additional Reading & Sources
@@ -380,11 +380,11 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MDY1MzQ0NCwtOTI5NTIwMjI4LC05OT
-Q3NzA5NzQsLTI5ODIyMjgzNiwtMTc1ODc5MTcxNiwtMjA0Mzc0
-MTk0OCwtOTM5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMz
-QwLC0xNzMzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1
-ODYzNjAzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MT
-A4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcs
-MjA4MjkxODYzMl19
+eyJoaXN0b3J5IjpbNzcwODYzMzkxLC05Mjk1MjAyMjgsLTk5ND
+c3MDk3NCwtMjk4MjIyODM2LC0xNzU4NzkxNzE2LC0yMDQzNzQx
+OTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5MTIzND
+AsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4
+NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMD
+g4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0Nywy
+MDgyOTE4NjMyXX0=
 -->
