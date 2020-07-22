@@ -330,17 +330,17 @@ In the final code block of the previous section, it is possible to remove the `w
 This section will make use of the `ps` program to demonstrate what happens if the shell does not call `wait()` when it is running (i.e. remove or comment out the call in `shell.c`). For more information on the usage of `ps`, please reference its man page. Moreover, the repository for this article contains example programs and a Makefile to compile all of the programs. A description of what each program does is given in their respective source file.  
 
 ## Additional Reading & Sources
-http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf
+[http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
 
-http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf
+[http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-api.pdf)
 
-http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf
+[http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/vm-intro.pdf)
 
-https://en.wikipedia.org/wiki/Unix_shell
+[https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzOTQ1OTM1MSwtMTE5ODM4NjY0NywtMT
-gyOTkxMjM0MCwtMTczMzQ4NTg2LC04OTQzNTYyNiwtNDAyOTkx
-NjYzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3NTY0LC0xMDI1NjI2ND
-YwLDY3NDEwODgyMyw4NzkwMDU0ODksMTU3NjIxNDE5MywxMTMz
-NjgzMzQ3LDIwODI5MTg2MzJdfQ==
+eyJoaXN0b3J5IjpbLTIwNDM3NDE5NDgsLTkzOTQ1OTM1MSwtMT
+E5ODM4NjY0NywtMTgyOTkxMjM0MCwtMTczMzQ4NTg2LC04OTQz
+NTYyNiwtNDAyOTkxNjYzLC0xNTg2MzYwMzg2LC0xMjQ1NjU3NT
+Y0LC0xMDI1NjI2NDYwLDY3NDEwODgyMyw4NzkwMDU0ODksMTU3
+NjIxNDE5MywxMTMzNjgzMzQ3LDIwODI5MTg2MzJdfQ==
 -->
