@@ -351,10 +351,12 @@ johnny@dev-vm:~/Desktop/unix-shell$ ./shell
 
 Run the `sleepy` program from the shell. Please note that becase the shell no longer calls `wait()`, the output and input prompts may not follow the program flow from the source files due to context switching. If at any point after running a program you are greeted with blank line with a flashing cursor, hit `enter` or `return`. This causes the shell to read in an empty line, ignores it, and reprompts with `>>>`.
 ```
-johnny@dev-vm unix-shell % ./shell
->>> progs/sleepy
+johnny@dev-vm:~/Desktop/unix-shell$ ./shell
+>>> progs/sleepy 3
 >>> About to sleep.
 Done sleeping.
+
+>>> 
 ```
 
 After `sleepy` has completed, run `ps` using an absolute path. This will produce output similar to the following:
@@ -381,11 +383,11 @@ Done sleeping.
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE0MTczMDQ0LC05Mjk1MjAyMjgsLTk5ND
-c3MDk3NCwtMjk4MjIyODM2LC0xNzU4NzkxNzE2LC0yMDQzNzQx
-OTQ4LC05Mzk0NTkzNTEsLTExOTgzODY2NDcsLTE4Mjk5MTIzND
-AsLTE3MzM0ODU4NiwtODk0MzU2MjYsLTQwMjk5MTY2MywtMTU4
-NjM2MDM4NiwtMTI0NTY1NzU2NCwtMTAyNTYyNjQ2MCw2NzQxMD
-g4MjMsODc5MDA1NDg5LDE1NzYyMTQxOTMsMTEzMzY4MzM0Nywy
-MDgyOTE4NjMyXX0=
+eyJoaXN0b3J5IjpbMTIwNzk5MTc4OCwtOTI5NTIwMjI4LC05OT
+Q3NzA5NzQsLTI5ODIyMjgzNiwtMTc1ODc5MTcxNiwtMjA0Mzc0
+MTk0OCwtOTM5NDU5MzUxLC0xMTk4Mzg2NjQ3LC0xODI5OTEyMz
+QwLC0xNzMzNDg1ODYsLTg5NDM1NjI2LC00MDI5OTE2NjMsLTE1
+ODYzNjAzODYsLTEyNDU2NTc1NjQsLTEwMjU2MjY0NjAsNjc0MT
+A4ODIzLDg3OTAwNTQ4OSwxNTc2MjE0MTkzLDExMzM2ODMzNDcs
+MjA4MjkxODYzMl19
 -->
