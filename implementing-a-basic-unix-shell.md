@@ -2,15 +2,6 @@
 
 # Implementing a Basic Unix Shell
 
-## Prerequisites
-A basic understanding of the following language and concepts:
-* C programming language: data types, functions, pointers and string representation
-* Programs, processes, address space, zombies and reaping 
-* System calls: `fork()`, `execv()`, `wait()` or alternatively `execve()` and `waitpid()`
-* Navigating directories and executing commands with a shell (e.g bash, zsh)
-
-If you find any of these topics completely foreign or need a refresher, please refer to the OSTEP articles linked in the *Additional Reading & Sources* section located at the end.
-
 ## Outcomes
 Upon completion of the article, you will have an understanding of the fundamentals of using system calls, operating system interfaces, and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
 
