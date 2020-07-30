@@ -2,9 +2,6 @@
 
 # Implementing a Basic Unix Shell
 
-## Outcomes
-Upon completion of the article, you will have an understanding of the fundamentals of using system calls, operating system interfaces, and abstractions for process control that facilitate the implementation of a Unix shell. The information presented can then be used to further your study of computer science and systems programming.
-
 ## Introduction
 In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion using absolute (1-3) and relative paths (4-5). 
 1. `/bin/ls -al`
