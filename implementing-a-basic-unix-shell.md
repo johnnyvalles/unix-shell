@@ -2,36 +2,6 @@
 
 # Implementing a Basic Unix Shell
 
-## Introduction
-In this article, you will learn how to implement a basic shell that can be compiled and executed on Unix-based operating systems (e.g. macOS and Linux distributions). The shell will allow a user to run programs in the following fashion using absolute (1-3) and relative paths (4-5). 
-1. `/bin/ls -al`
-2. `/bin/ps aux`
-3. `/bin/echo "Hello, World!"`
-4. `program1 arg1 arg2 arg3`
-5. `./program2 arg1`
-
-When a program name is provided as in example 4 above, our shell will assume the working directory to be that of where its executable file is located.
-
-The implementation is considered basic due to the inability to run programs in a background process (i.e. using `&` operator when invoking a program), lack of signal handling for signals that may be delivered to the shell while it is running, I/O redirection and pipelining.
-
-However, the implementation is thorough enough to grant the programmer freedom with implementing new functionality. Thus, providing a foundation upon which the aforementioned features can be added.
-
-Before proceeding, it is highly recommended to have some form of documentation available for the functions and system calls used throughout the article. The quickest way to obtain documentation for a function is to use its manual page, otherwise known as a *man page*. This page can easily be brought up in the following manner right from a shell, other than the one we will be writing.
-* `man echo`
-* `man strcmp`
-* `man exevc`
-* `man fork`
-
-Searching for a particular entry in a man page can be done using pipes (i.e. using `|` ) . The output of the manual entry can be pipelined to `grep` and that output can optionally be displayed using `less`  or redirected to a file of your choosing (i.e. using `>` or `>>`). Here are a few examples:
-
- * `man fork`
- * `man fork | grep process`
- *  `man execv | grep "list of arguments"`
- * `man wait > kernighan.txt`
- * `man ps >> ritchie.txt`
-
-All of the code and example programs used in this article are available at [https://github.com/johnnyvalles/unix-shell](https://github.com/johnnyvalles/unix-shell). Feel free to download or fork the repository. Contributions are encouraged. Simply create a feature branch and submit a pull request. A Makefile has been provided to quickly compile the shell and example programs (i.e. run `make`).
-
 ## What is a Shell?
 A shell is a program that can run commands and programs on behalf of a user. Before the emergence of graphical user interfaces (GUIs), a user had to use a shell to run commands and programs on a computer in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
 1. Program set up
