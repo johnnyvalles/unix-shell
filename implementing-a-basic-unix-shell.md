@@ -3,7 +3,7 @@
 # Implementing a Basic Unix Shell
 
 ## What is a Shell?
-A shell is a program that can run commands and programs on behalf of a user in a text-baseSimply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. It then proceeds to build any necessary data structures for the program to run, creates a new process, and runs that program within the context of that new process. This is all accomplished using system calls provided by the operating system for process control. It is vital to make the distinction that a shell is just an ordinary program that runs as a user-level process. We will implement it as a series of steps:
+A shell is a program that can run commands and programs on behalf of a user in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. Finally, it builds any data structures necessary for the program to run, creates a new process, and runs that program within the context of that new process. We will implement it as a series of steps:
 1. Program set up
 2. Read user input
 3. Evaluate user input
@@ -338,7 +338,7 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzk0NTMyNDgsMjQ3OTU4NzQ1LC0yMD
+eyJoaXN0b3J5IjpbLTE1MjQ5NDQ5OTAsMjQ3OTU4NzQ1LC0yMD
 M5MjE1ODcyLC0xNjIwMTg5MjksLTcyNDg4NzAxNiw3NzA4NjMz
 OTEsLTkyOTUyMDIyOCwtOTk0NzcwOTc0LC0yOTgyMjI4MzYsLT
 E3NTg3OTE3MTYsLTIwNDM3NDE5NDgsLTkzOTQ1OTM1MSwtMTE5
