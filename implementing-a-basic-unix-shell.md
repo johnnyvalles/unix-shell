@@ -46,7 +46,7 @@ void read_cmd(char* buf);
 void read_cmd(char* buf) {
     printf(">>> ");                                   /* print shell prompt */
     if (fgets(buf, MAXLINE, stdin) == NULL)           /* read & store line, check for EOF or error */
-        exit(0);                                      /* shell exits on EOF or error */
+        exit(0);                                      /* exit on EOF or error */
 }
 ```
 
@@ -59,7 +59,7 @@ void parse_cmd(char* buf, char** argv, int* argc);
 void parse_cmd(char* buf, char** argv, int* argc) {
     char* del;                                        /* points to space delimiter */
     *argc = 0;                                        /* set argument count to 0 */
-    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with a space */
+    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with space */
     while (buf && (*buf == ' '))                      /* ignore leading spaces */
         ++buf;
     while ((del = strchr(buf, ' '))) {                /* build argv */
@@ -312,11 +312,11 @@ If `wait()` is not called the child process still runs until it terminates. Howe
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDQ5NjA3OTIsLTE5NjA5NDY3OTMsLT
-ExOTQ0NTI0NDMsLTEyNzQ3NzYzNDUsMTc1MDQ0MTQzMiwtMTIy
-OTk3ODc3MywxNDg0ODUyODA0LC01NDIyNjM4NDgsMTQ2NDk3ND
-c4MiwtOTEyNTUwNTMzLC01NTE3NDc2LDIyOTQ3ODk3NiwxMDQw
-NDkxMzIyLC00ODI4MzQ3LC01NzExMzA2NTEsLTg2MzI1NjU2LC
-0xNTM2OTcyODg3LC0yMDg0NjUyODc1LC0xNTAzMTA0NDkwLDE0
-NzE0Mzk3MjNdfQ==
+eyJoaXN0b3J5IjpbNDY4NzE1NDg4LC0xOTYwOTQ2NzkzLC0xMT
+k0NDUyNDQzLC0xMjc0Nzc2MzQ1LDE3NTA0NDE0MzIsLTEyMjk5
+Nzg3NzMsMTQ4NDg1MjgwNCwtNTQyMjYzODQ4LDE0NjQ5NzQ3OD
+IsLTkxMjU1MDUzMywtNTUxNzQ3NiwyMjk0Nzg5NzYsMTA0MDQ5
+MTMyMiwtNDgyODM0NywtNTcxMTMwNjUxLC04NjMyNTY1NiwtMT
+UzNjk3Mjg4NywtMjA4NDY1Mjg3NSwtMTUwMzEwNDQ5MCwxNDcx
+NDM5NzIzXX0=
 -->
