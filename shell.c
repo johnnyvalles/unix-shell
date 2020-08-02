@@ -56,6 +56,11 @@ void parse_cmd(char* buf, char** argv, unsigned int* argc) {
 int builtin_cmd(char** argv) {
     if (!strcmp(*argv, "exit"))                             /* check if typed exit */
         exit(0);
+
+    if (!strcmp(*argv, "whoami")) {
+        printf("USER=%s\n", getenv("USER"));
+        return 1;
+    }
     
     if (!strcmp(*argv, "help")) {                           /* check if typed help */
         char *help = 
@@ -64,6 +69,7 @@ int builtin_cmd(char** argv) {
         "Built-in commands:\n"
         "\thelp\n"
         "\texit\n"
+        "\twhoami\n"
         "\nExternal programs:\n"
         "\tTyping in the name of a program (e.g."
         " prog1 \n\tor ./prog1) assumes the working directory\n"
