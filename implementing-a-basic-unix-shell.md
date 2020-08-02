@@ -302,7 +302,7 @@ void exec_cmd(char** argv, int argc) {
 ## Reaping Child Processes and Avoiding Zombies
 When a child process terminates, `wait()` signals to the operating system that it has completed. This permits the operating system to *reap* the process. In turn, freeing system resources used to maintain the process' state (e.g. process control block).
 
-If `wait()` is not called the child process still runs until it terminates. However, it will continue to consume system resources because it was not reaped. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to prevent resource leaks.
+If `wait()` is not called, the child process still runs until it terminates. However, it will continue to consume system resources because it was not reaped. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to prevent resource leaks.
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -313,11 +313,11 @@ If `wait()` is not called the child process still runs until it terminates. Howe
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4ODkyNjc5MCwtMTY3MzgwMjM1MywyMT
-E4ODU4OTY5LC0xMDM5MzQzMTQ2LC0zODAwMDA2ODUsLTE5NjA5
-NDY3OTMsLTExOTQ0NTI0NDMsLTEyNzQ3NzYzNDUsMTc1MDQ0MT
-QzMiwtMTIyOTk3ODc3MywxNDg0ODUyODA0LC01NDIyNjM4NDgs
-MTQ2NDk3NDc4MiwtOTEyNTUwNTMzLC01NTE3NDc2LDIyOTQ3OD
-k3NiwxMDQwNDkxMzIyLC00ODI4MzQ3LC01NzExMzA2NTEsLTg2
-MzI1NjU2XX0=
+eyJoaXN0b3J5IjpbMTUxNjU1ODc5MiwtNDg4OTI2NzkwLC0xNj
+czODAyMzUzLDIxMTg4NTg5NjksLTEwMzkzNDMxNDYsLTM4MDAw
+MDY4NSwtMTk2MDk0Njc5MywtMTE5NDQ1MjQ0MywtMTI3NDc3Nj
+M0NSwxNzUwNDQxNDMyLC0xMjI5OTc4NzczLDE0ODQ4NTI4MDQs
+LTU0MjI2Mzg0OCwxNDY0OTc0NzgyLC05MTI1NTA1MzMsLTU1MT
+c0NzYsMjI5NDc4OTc2LDEwNDA0OTEzMjIsLTQ4MjgzNDcsLTU3
+MTEzMDY1MV19
 -->
