@@ -20,7 +20,7 @@ int main() {
     char* argv[MAXARGS];                              /* argument vector */
     unsigned int argc = 0;                            /* argument count */
                             
-    while(1) {
+    for (;;) {
         read_cmd(buf);
         parse_cmd(buf, argv, &argc);
         exec_cmd(argv, argc);
