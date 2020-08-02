@@ -3,7 +3,7 @@
 # Implementing a Basic Unix Shell
 
 ## What is a Shell?
-A shell is a program that runs commands and programs on behalf of a user in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`), evaluates the input by parsing and tokenizing the command to determine its validity. Finally, it builds any data structures necessary for the program to run, creates a new process, and runs that program within that context.
+A shell is a program that runs commands and programs on behalf of a user in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`) and evaluates the input by parsing and tokenizing the command to determine its validity. Finally, it builds any data structures necessary for the program to run, creates a new process, and runs that program within that context.
 
 ## Program Set Up
 The shell source code will be written in a single file called `shell.c`. The header files in the code block below must be included in the program to enable I/O and the use of system calls provided by the operating system. Additionally, we need to define two symbolic constants `MAXARGS` and `MAXLINE`. The two will provide an upper bound on the number of characters for arguments a user can provide and the character length of the overall command, respectively.
@@ -333,7 +333,7 @@ Notice that the process with PID of 3657, is in a `<defunct>` state. The `sleepy
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NTcxMDU2MiwyNDc5NTg3NDUsLTIwMz
+eyJoaXN0b3J5IjpbMTQ3MTQzOTcyMywyNDc5NTg3NDUsLTIwMz
 kyMTU4NzIsLTE2MjAxODkyOSwtNzI0ODg3MDE2LDc3MDg2MzM5
 MSwtOTI5NTIwMjI4LC05OTQ3NzA5NzQsLTI5ODIyMjgzNiwtMT
 c1ODc5MTcxNiwtMjA0Mzc0MTk0OCwtOTM5NDU5MzUxLC0xMTk4
