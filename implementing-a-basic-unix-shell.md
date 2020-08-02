@@ -1,14 +1,13 @@
 
-
 # Implementing a Basic Unix Shell
 
 ## What is a Shell?
-A shell is a program that runs commands and programs on behalf of a user in a text-based manner. Simply put, a shell reads in a command that a user types (e.g. `stdin`) and evaluates the input by parsing and tokenizing the command to determine its validity. Finally, it builds any data structures necessary for the program to run, creates a new process, and runs that program within that context.
+A shell is a user level-process that runs commands and programs on behalf of a user in a text-based manner. For instance, when a system is booted and a user logs in, a shell process is automatically started. 
 
-## Program Set Up
+## Program Set-Up
 The shell source code will be written in a single file called `shell.c`.  We need two symbolic constants `MAXARGS` and `MAXLINE`. The two will provide an upper bound on the number of characters for arguments a user can provide and the character length of the overall command, respectively. 
 
-The following code block demonstrates the structure for the shell. Subsequent sections will introduce the prototypes and implementations.
+The following code block demonstrates the structure of the shell. Subsequent sections will introduce the prototypes and implementations.
 
 ```c
 /* shell.c */
@@ -299,7 +298,7 @@ void exec_cmd(char** argv, int argc) {
 ## Reaping Child Processes and Avoiding Zombies
 Once a child process has terminated, `wait()` signals the operating system that the process has completed. This permits the operating system to *reap* the process. Reaping terminated processes frees up system resources used for process data structures.
 
-If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, it is vital that they reap their children to free resources.
+If `wait()` is not called then the child process will run but once terminated, will continue to consume system resources. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to free resources.
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -310,11 +309,11 @@ If `wait()` is not called then the child process will run but once terminated, w
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjk5Nzg3NzMsMTQ4NDg1MjgwNCwtNT
-QyMjYzODQ4LDE0NjQ5NzQ3ODIsLTkxMjU1MDUzMywtNTUxNzQ3
-NiwyMjk0Nzg5NzYsMTA0MDQ5MTMyMiwtNDgyODM0NywtNTcxMT
-MwNjUxLC04NjMyNTY1NiwtMTUzNjk3Mjg4NywtMjA4NDY1Mjg3
-NSwtMTUwMzEwNDQ5MCwxNDcxNDM5NzIzLDI0Nzk1ODc0NSwtMj
-AzOTIxNTg3MiwtMTYyMDE4OTI5LC03MjQ4ODcwMTYsNzcwODYz
-MzkxXX0=
+eyJoaXN0b3J5IjpbLTExOTQ0NTI0NDMsLTEyNzQ3NzYzNDUsMT
+c1MDQ0MTQzMiwtMTIyOTk3ODc3MywxNDg0ODUyODA0LC01NDIy
+NjM4NDgsMTQ2NDk3NDc4MiwtOTEyNTUwNTMzLC01NTE3NDc2LD
+IyOTQ3ODk3NiwxMDQwNDkxMzIyLC00ODI4MzQ3LC01NzExMzA2
+NTEsLTg2MzI1NjU2LC0xNTM2OTcyODg3LC0yMDg0NjUyODc1LC
+0xNTAzMTA0NDkwLDE0NzE0Mzk3MjMsMjQ3OTU4NzQ1LC0yMDM5
+MjE1ODcyXX0=
 -->
