@@ -155,15 +155,15 @@ void Execv(const char* path, char *const argv[]) {
 }
 
 void exec_cmd(char** argv, int argc) {
-    if (argc == 0 || builtin_cmd(argv))               /* check if no command or bult-in command */
+    if (argc == 0 || builtin_cmd(argv))               /* check if no command or built-in */
         return;
 
-    pid_t pid = Fork();                               /* otherwise spawn a child process using fork wrapper */
+    pid_t pid = Fork();                               /* spawn child process using fork wrapper */
 
     if (pid == 0) {                                   /* check if child process */
-        Execv(*argv, argv);                           /* replace current process address space using execv wrapper */
+        Execv(*argv, argv);                           /* replace child process address space using execv wrapper */
     } else {
-        wait(NULL);                                   /* otherwise parent waits for child process to finish */
+        wait(NULL);                                   /* parent waits for child process to finish */
     }
 }
 ```
@@ -171,6 +171,7 @@ void exec_cmd(char** argv, int argc) {
 > Quick Tip: the operating system scheduler decides when either the parent or child process runs. Therefore, the parent can run first, and then the child or vice-versa.  However, using `wait()` halts the parent process until a child process has terminated.
 
 > Quick Tip: more information on the systems calls can be obtained by referring to their respective man-page entries (e.g. `man execv` or `man fork`).
+
 ## Piecing Together the Shell
 ```c
 /* shell.c */
@@ -202,7 +203,7 @@ int main(void) {
                             
     for (;;) {
         read_cmd(buf);                                /* read line from stdin */
-        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv and argc */
+        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv & argc */
         exec_cmd(argv, argc);                         /* execute parsed line */
     }
 
@@ -230,13 +231,13 @@ void Execv(const char* path, char *const argv[]) {
 void read_cmd(char* buf) {
     printf(">>> ");                                   /* print shell prompt */
     if (fgets(buf, MAXLINE, stdin) == NULL)           /* read & store line, check for EOF or error */
-        exit(0);                                      /* shell exits on EOF or error */
+        exit(0);                                      /* exit on EOF or error */
 }
 
 void parse_cmd(char* buf, char** argv, int* argc) {
     char* del;                                        /* points to space delimiter */
     *argc = 0;                                        /* set argument count to 0 */
-    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with a space */
+    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with space */
     while (buf && (*buf == ' '))                      /* ignore leading spaces */
         ++buf;
     while ((del = strchr(buf, ' '))) {                /* build argv */
@@ -281,15 +282,15 @@ int builtin_cmd(char** argv) {
 }
 
 void exec_cmd(char** argv, int argc) {
-    if (argc == 0 || builtin_cmd(argv))               /* check if no command or bult-in command */
+    if (argc == 0 || builtin_cmd(argv))               /* check if no command or built-in */
         return;
 
-    pid_t pid = Fork();                               /* otherwise spawn a child process using fork wrapper */
+    pid_t pid = Fork();                               /* spawn child process using fork wrapper */
 
     if (pid == 0) {                                   /* check if child process */
-        Execv(*argv, argv);                           /* replace current process address space using execv wrapper */
+        Execv(*argv, argv);                           /* replace child process address space using execv wrapper */
     } else {
-        wait(NULL);                                   /* otherwise parent waits for child process to finish */
+        wait(NULL);                                   /* parent waits for child process to finish */
     }
 }
 ```
@@ -312,11 +313,11 @@ If `wait()` is not called the child process still runs until it terminates. Howe
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY4NzE1NDg4LC0xOTYwOTQ2NzkzLC0xMT
-k0NDUyNDQzLC0xMjc0Nzc2MzQ1LDE3NTA0NDE0MzIsLTEyMjk5
-Nzg3NzMsMTQ4NDg1MjgwNCwtNTQyMjYzODQ4LDE0NjQ5NzQ3OD
-IsLTkxMjU1MDUzMywtNTUxNzQ3NiwyMjk0Nzg5NzYsMTA0MDQ5
-MTMyMiwtNDgyODM0NywtNTcxMTMwNjUxLC04NjMyNTY1NiwtMT
-UzNjk3Mjg4NywtMjA4NDY1Mjg3NSwtMTUwMzEwNDQ5MCwxNDcx
-NDM5NzIzXX0=
+eyJoaXN0b3J5IjpbLTM4MDAwMDY4NSwtMTk2MDk0Njc5MywtMT
+E5NDQ1MjQ0MywtMTI3NDc3NjM0NSwxNzUwNDQxNDMyLC0xMjI5
+OTc4NzczLDE0ODQ4NTI4MDQsLTU0MjI2Mzg0OCwxNDY0OTc0Nz
+gyLC05MTI1NTA1MzMsLTU1MTc0NzYsMjI5NDc4OTc2LDEwNDA0
+OTEzMjIsLTQ4MjgzNDcsLTU3MTEzMDY1MSwtODYzMjU2NTYsLT
+E1MzY5NzI4ODcsLTIwODQ2NTI4NzUsLTE1MDMxMDQ0OTAsMTQ3
+MTQzOTcyM119
 -->
