@@ -27,7 +27,7 @@ int main(void) {
                             
     for (;;) {
         read_cmd(buf);                                /* read line from stdin */
-        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv and argc */
+        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv & argc */
         exec_cmd(argv, argc);                         /* execute parsed line */
     }
 
@@ -312,11 +312,11 @@ If `wait()` is not called the child process still runs until it terminates. Howe
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjA5NDY3OTMsLTExOTQ0NTI0NDMsLT
-EyNzQ3NzYzNDUsMTc1MDQ0MTQzMiwtMTIyOTk3ODc3MywxNDg0
-ODUyODA0LC01NDIyNjM4NDgsMTQ2NDk3NDc4MiwtOTEyNTUwNT
-MzLC01NTE3NDc2LDIyOTQ3ODk3NiwxMDQwNDkxMzIyLC00ODI4
-MzQ3LC01NzExMzA2NTEsLTg2MzI1NjU2LC0xNTM2OTcyODg3LC
-0yMDg0NjUyODc1LC0xNTAzMTA0NDkwLDE0NzE0Mzk3MjMsMjQ3
-OTU4NzQ1XX0=
+eyJoaXN0b3J5IjpbLTE5NDQ5NjA3OTIsLTE5NjA5NDY3OTMsLT
+ExOTQ0NTI0NDMsLTEyNzQ3NzYzNDUsMTc1MDQ0MTQzMiwtMTIy
+OTk3ODc3MywxNDg0ODUyODA0LC01NDIyNjM4NDgsMTQ2NDk3ND
+c4MiwtOTEyNTUwNTMzLC01NTE3NDc2LDIyOTQ3ODk3NiwxMDQw
+NDkxMzIyLC00ODI4MzQ3LC01NzExMzA2NTEsLTg2MzI1NjU2LC
+0xNTM2OTcyODg3LC0yMDg0NjUyODc1LC0xNTAzMTA0NDkwLDE0
+NzE0Mzk3MjNdfQ==
 -->
