@@ -10,50 +10,47 @@
 #define MAXARGS 16
 #define MAXLINE 256
 
-void parse_cmd(char* buf);
+void parse_cmd(char* buf, char** argv, unsigned int* argc);
 int builtin_cmd(char** buf);
-void exec_cmd(char** argv);
+void exec_cmd(char** argv, int argc);
+void read_cmd(char* buf);
 
 int main() {
-    char buf[MAXLINE];                                      /* buffer holds user's input */
+    char buf[MAXLINE];                                /* input buffer */       
+    char* argv[MAXARGS];                              /* argument vector */
+    unsigned int argc = 0;                            /* argument count */
+                            
     while(1) {
-        printf(">>> ");                                     /* print shell prompt */
-        if (fgets(buf, MAXLINE, stdin) == NULL)             /* read and store line, check for end-of-file or error */
-            exit(0);
-        parse_cmd(buf);                                     /* parse the command */
+        read_cmd(buf);
+        parse_cmd(buf, argv, &argc);
+        exec_cmd(argv, argc);
     }
+
     return EXIT_SUCCESS;
 }
 
-void parse_cmd(char* buf) {
-    char* argv[MAXARGS];                                    /* argument vector */
-    char* del;                                              /* delimiter pointer */
-    int argc;                                               /* number of arguments parsed */
-    
+void read_cmd(char* buf) {
+    printf(">>> ");                                         /* print shell prompt */
+    if (fgets(buf, MAXLINE, stdin) == NULL)                 /* read & store line, check for EOF or error */
+        exit(0);                                            /* shell exits on EOF or error */
+}
+
+void parse_cmd(char* buf, char** argv, unsigned int* argc) {
+    char* del;                                              /* points to delimiter */
+    *argc = 0;                                              /* set argument count to 0 */
     buf[strlen(buf) - 1] = ' ';                             /* replace '\n' with a space */
-    
     while (buf && (*buf == ' '))                            /* ignore leading spaces */
         ++buf;
-    
-    argc = 0;
     while ((del = strchr(buf, ' '))) {                      /* construct argv */
-        *del = '\0';
-        argv[argc++] = buf; 
+        *del = '\0';                                        /* replace space with null character */
+        argv[(*argc)++] = buf; 
         buf = del + 1;
         
         while (buf && (*buf == ' '))                        /* ignore leading spaces */
             ++buf;
     }
 
-    argv[argc] = NULL;                                      /* NULL-terminate argv */
-    
-    if (argc == 0)                                          /* empty line */
-        return;
-
-    if (builtin_cmd(argv))                                  /* check if built-in command */
-        return;
-
-    exec_cmd(argv);
+    argv[*argc] = NULL;                                      /* NULL-terminate argv */
 }
 
 int builtin_cmd(char** argv) {
@@ -81,7 +78,10 @@ int builtin_cmd(char** argv) {
     return 0;
 }
 
-void exec_cmd(char** argv) {
+void exec_cmd(char** argv, int argc) {
+    if (argc == 0 || builtin_cmd(argv))
+        return;
+
     pid_t pid = fork();
 
     if (pid < 0) {                                          /* check if fork failed */
