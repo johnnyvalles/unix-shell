@@ -301,7 +301,7 @@ void exec_cmd(char** argv, int argc) {
 ## Reaping Child Processes and Avoiding Zombies
 When a child process terminates, `wait()` signals the operating system that the process has completed. This permits the operating system to *reap* the process. In turn freeing system resources used for process data structures.
 
-If `wait()` is not called then the child process will run but uni terminated, will continue to consume system resources. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to free resources.
+If `wait()` is not called the child process still runs until it terminates. However, it will continue to consume system resources bevause it was not reaped. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to free resources.
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -312,7 +312,7 @@ If `wait()` is not called then the child process will run but uni terminated, wi
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNDQ4MTYzNSwtMTE5NDQ1MjQ0MywtMT
+eyJoaXN0b3J5IjpbMTI2MjQ2ODQ1OCwtMTE5NDQ1MjQ0MywtMT
 I3NDc3NjM0NSwxNzUwNDQxNDMyLC0xMjI5OTc4NzczLDE0ODQ4
 NTI4MDQsLTU0MjI2Mzg0OCwxNDY0OTc0NzgyLC05MTI1NTA1Mz
 MsLTU1MTc0NzYsMjI5NDc4OTc2LDEwNDA0OTEzMjIsLTQ4Mjgz
