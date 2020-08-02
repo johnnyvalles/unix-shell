@@ -10,59 +10,80 @@
 #define MAXARGS 16
 #define MAXLINE 256
 
-void parse_cmd(char* buf, char** argv, unsigned int* argc);
+/* error-checking system call wrappers */
+pid_t Fork(void);
+void Execv(const char* path, char *const argv[]);
+
+/* shell utilities */
+void parse_cmd(char* buf, char** argv, int* argc);
 int builtin_cmd(char** buf);
 void exec_cmd(char** argv, int argc);
 void read_cmd(char* buf);
 
-int main() {
-    char buf[MAXLINE];                                /* input buffer */       
+int main(void) {
+    char buf[MAXLINE];                                /* buffer for stdin line */       
     char* argv[MAXARGS];                              /* argument vector */
-    unsigned int argc = 0;                            /* argument count */
+    int argc = 0;                                     /* argument count */
                             
     for (;;) {
-        read_cmd(buf);
-        parse_cmd(buf, argv, &argc);
-        exec_cmd(argv, argc);
+        read_cmd(buf);                                /* read line from stdin */
+        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv and argc */
+        exec_cmd(argv, argc);                         /* execute parsed line */
     }
 
     return EXIT_SUCCESS;
 }
 
-void read_cmd(char* buf) {
-    printf(">>> ");                                         /* print shell prompt */
-    if (fgets(buf, MAXLINE, stdin) == NULL)                 /* read & store line, check for EOF or error */
-        exit(0);                                            /* shell exits on EOF or error */
+pid_t Fork(void){
+    pid_t pid = fork();
+
+    if (pid < 0) {
+        fprintf(stderr, "fork error... terminating shell.\n");
+        exit(0);
+    }
+    
+    return pid;
 }
 
-void parse_cmd(char* buf, char** argv, unsigned int* argc) {
-    char* del;                                              /* points to delimiter */
-    *argc = 0;                                              /* set argument count to 0 */
-    buf[strlen(buf) - 1] = ' ';                             /* replace '\n' with a space */
-    while (buf && (*buf == ' '))                            /* ignore leading spaces */
+void Execv(const char* path, char *const argv[]) {
+    if (execv(path, argv) < 0) {
+        fprintf(stderr, "%s: unknown command.\n", *argv);
+        exit(0);
+    }
+}
+
+void read_cmd(char* buf) {
+    printf(">>> ");                                   /* print shell prompt */
+    if (fgets(buf, MAXLINE, stdin) == NULL)           /* read & store line, check for EOF or error */
+        exit(0);                                      /* shell exits on EOF or error */
+}
+
+void parse_cmd(char* buf, char** argv, int* argc) {
+    char* del;                                        /* points to space delimiter */
+    *argc = 0;                                        /* set argument count to 0 */
+    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with a space */
+    while (buf && (*buf == ' '))                      /* ignore leading spaces */
         ++buf;
-    while ((del = strchr(buf, ' '))) {                      /* construct argv */
-        *del = '\0';                                        /* replace space with null character */
-        argv[(*argc)++] = buf; 
-        buf = del + 1;
-        
-        while (buf && (*buf == ' '))                        /* ignore leading spaces */
+    while ((del = strchr(buf, ' '))) {                /* build argv */
+        *del = '\0';                                  /* replace space delimiter with NULL character */
+        argv[(*argc)++] = buf;                        /* set argv[argc] to string before NULL character */
+        buf = del + 1;                                /* set buf after NULL character of last string */
+        while (buf && (*buf == ' '))                  /* ignore leading spaces */
             ++buf;
     }
-
-    argv[*argc] = NULL;                                      /* NULL-terminate argv */
+    argv[*argc] = NULL;                               /* NULL-terminate argv */
 }
 
 int builtin_cmd(char** argv) {
-    if (!strcmp(*argv, "exit"))                             /* check if typed exit */
+    if (!strcmp(*argv, "exit"))                       /* check if user typed exit */
         exit(0);
 
-    if (!strcmp(*argv, "whoami")) {
-        printf("USER=%s\n", getenv("USER"));
+    if (!strcmp(*argv, "whoami")) {                   /* check if user typed whoami for USER env var*/
+        printf("%s\n", getenv("USER"));
         return 1;
     }
     
-    if (!strcmp(*argv, "help")) {                           /* check if typed help */
+    if (!strcmp(*argv, "help")) {                     /* check if user typed help */
         char *help = 
         "************************** Shell "
         "**************************\n"
@@ -85,22 +106,14 @@ int builtin_cmd(char** argv) {
 }
 
 void exec_cmd(char** argv, int argc) {
-    if (argc == 0 || builtin_cmd(argv))
+    if (argc == 0 || builtin_cmd(argv))               /* check if no command or bult-in command */
         return;
 
-    pid_t pid = fork();
+    pid_t pid = Fork();                               /* otherwise spawn a child process using fork wrapper */
 
-    if (pid < 0) {                                          /* check if fork failed */
-        fprintf(stderr, "fork error.\n");                   /* terminate shell if fork failed */ 
-        exit(0);
-    } else if (pid == 0) {                                  /* create a new process, check if child process */
-        if (execv(*argv, argv) < 0) {                       /* only runs in child process attempts to run program */
-            fprintf(stderr,                                 /* terminate child process if exec fails */
-                    "%s: unknown command.\n", 
-                    *argv);
-            exit(0);
-        }
+    if (pid == 0) {                                   /* check if child process */
+        Execv(*argv, argv);                           /* replace current process address space using execv wrapper */
     } else {
-        wait(NULL);                                         /* otherwise parent waits for child process to finish */
+        wait(NULL);                                   /* otherwise parent waits for child process to finish */
     }
 }
