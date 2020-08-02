@@ -27,7 +27,7 @@ int main(void) {
                             
     for (;;) {
         read_cmd(buf);                                /* read line from stdin */
-        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv and argc */
+        parse_cmd(buf, argv, &argc);                  /* parse, tokenize, build argv & argc */
         exec_cmd(argv, argc);                         /* execute parsed line */
     }
 
@@ -55,13 +55,13 @@ void Execv(const char* path, char *const argv[]) {
 void read_cmd(char* buf) {
     printf(">>> ");                                   /* print shell prompt */
     if (fgets(buf, MAXLINE, stdin) == NULL)           /* read & store line, check for EOF or error */
-        exit(0);                                      /* shell exits on EOF or error */
+        exit(0);                                      /* exit on EOF or error */
 }
 
 void parse_cmd(char* buf, char** argv, int* argc) {
     char* del;                                        /* points to space delimiter */
     *argc = 0;                                        /* set argument count to 0 */
-    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with a space */
+    buf[strlen(buf) - 1] = ' ';                       /* replace trailing '\n' with space */
     while (buf && (*buf == ' '))                      /* ignore leading spaces */
         ++buf;
     while ((del = strchr(buf, ' '))) {                /* build argv */
@@ -106,14 +106,14 @@ int builtin_cmd(char** argv) {
 }
 
 void exec_cmd(char** argv, int argc) {
-    if (argc == 0 || builtin_cmd(argv))               /* check if no command or bult-in command */
+    if (argc == 0 || builtin_cmd(argv))               /* check if no command or built-in */
         return;
 
-    pid_t pid = Fork();                               /* otherwise spawn a child process using fork wrapper */
+    pid_t pid = Fork();                               /* spawn child process using fork wrapper */
 
     if (pid == 0) {                                   /* check if child process */
-        Execv(*argv, argv);                           /* replace current process address space using execv wrapper */
+        Execv(*argv, argv);                           /* replace child process address space using execv wrapper */
     } else {
-        wait(NULL);                                   /* otherwise parent waits for child process to finish */
+        wait(NULL);                                   /* parent waits for child process to finish */
     }
 }
