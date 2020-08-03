@@ -307,7 +307,7 @@ If `wait()` is not called, the child process still runs until it terminates. How
 ## Limitations & Future Posts
 The implementation is considered basic due to the following missing features:
 * Inability to run programs as background processes (i.e. using `&` operator when invoking a program)
-* Signal handling for signals that may be delivered to the shell while it is running
+* Handling of assignals 
 * I/O redirection
 * Inter-process communication (i.e. pipelines)
 
@@ -320,7 +320,7 @@ The implementation is considered basic due to the following missing features:
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3NjE3MjQwNiwxNTE2NTU4NzkyLC00OD
+eyJoaXN0b3J5IjpbLTY1MTI0NDkyOCwxNTE2NTU4NzkyLC00OD
 g5MjY3OTAsLTE2NzM4MDIzNTMsMjExODg1ODk2OSwtMTAzOTM0
 MzE0NiwtMzgwMDAwNjg1LC0xOTYwOTQ2NzkzLC0xMTk0NDUyND
 QzLC0xMjc0Nzc2MzQ1LDE3NTA0NDE0MzIsLTEyMjk5Nzg3NzMs
