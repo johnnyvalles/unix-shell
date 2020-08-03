@@ -306,10 +306,10 @@ If `wait()` is not called, the child process still runs until it terminates. How
 
 ## Limitations & Future Posts
 The implementation is considered limited due to the following missing features:
--   Background processes (i.e. using & operator)
+-   Background processes (i.e. using `&` operator)
 -   Handling of asynchronous signals
 -   I/O redirection
--   Pipelines (e.g. process1 | process2 | process3)
+-   Pipelines (e.g. `process1 | process2 | process3`)
 
 However, subsequent posts will provide a guide to implementing the missing features.
 
