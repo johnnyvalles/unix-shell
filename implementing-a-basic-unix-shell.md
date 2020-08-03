@@ -309,7 +309,7 @@ The implementation is considered basic due to the following missing features:
 * Background processes (i.e. using `&` operator)
 * Handling of asynchronous signals 
 * I/O redirection
-* Inter-process communication (i.e. pipelines)
+* Pipelines (e.g. `process1 | process2 | process3`)
 
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
@@ -320,11 +320,11 @@ The implementation is considered basic due to the following missing features:
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU4NTE0NTM4LDE1MTY1NTg3OTIsLTQ4OD
-kyNjc5MCwtMTY3MzgwMjM1MywyMTE4ODU4OTY5LC0xMDM5MzQz
-MTQ2LC0zODAwMDA2ODUsLTE5NjA5NDY3OTMsLTExOTQ0NTI0ND
-MsLTEyNzQ3NzYzNDUsMTc1MDQ0MTQzMiwtMTIyOTk3ODc3Mywx
-NDg0ODUyODA0LC01NDIyNjM4NDgsMTQ2NDk3NDc4MiwtOTEyNT
-UwNTMzLC01NTE3NDc2LDIyOTQ3ODk3NiwxMDQwNDkxMzIyLC00
-ODI4MzQ3XX0=
+eyJoaXN0b3J5IjpbMTYzMjc0NjgxOSwxNTE2NTU4NzkyLC00OD
+g5MjY3OTAsLTE2NzM4MDIzNTMsMjExODg1ODk2OSwtMTAzOTM0
+MzE0NiwtMzgwMDAwNjg1LC0xOTYwOTQ2NzkzLC0xMTk0NDUyND
+QzLC0xMjc0Nzc2MzQ1LDE3NTA0NDE0MzIsLTEyMjk5Nzg3NzMs
+MTQ4NDg1MjgwNCwtNTQyMjYzODQ4LDE0NjQ5NzQ3ODIsLTkxMj
+U1MDUzMywtNTUxNzQ3NiwyMjk0Nzg5NzYsMTA0MDQ5MTMyMiwt
+NDgyODM0N119
 -->
