@@ -304,6 +304,10 @@ When a child process terminates, `wait()` signals to the operating system that i
 
 If `wait()` is not called, the child process still runs until it terminates. However, it will continue to consume system resources because it was not reaped. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to prevent resource leaks.
 
+## Limitations & Future Posts
+
+
+
 ## Additional Reading & Sources
 [http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
 
@@ -313,11 +317,11 @@ If `wait()` is not called, the child process still runs until it terminates. How
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNjU1ODc5MiwtNDg4OTI2NzkwLC0xNj
-czODAyMzUzLDIxMTg4NTg5NjksLTEwMzkzNDMxNDYsLTM4MDAw
-MDY4NSwtMTk2MDk0Njc5MywtMTE5NDQ1MjQ0MywtMTI3NDc3Nj
-M0NSwxNzUwNDQxNDMyLC0xMjI5OTc4NzczLDE0ODQ4NTI4MDQs
-LTU0MjI2Mzg0OCwxNDY0OTc0NzgyLC05MTI1NTA1MzMsLTU1MT
-c0NzYsMjI5NDc4OTc2LDEwNDA0OTEzMjIsLTQ4MjgzNDcsLTU3
-MTEzMDY1MV19
+eyJoaXN0b3J5IjpbLTUxMDUyMDQ4NywxNTE2NTU4NzkyLC00OD
+g5MjY3OTAsLTE2NzM4MDIzNTMsMjExODg1ODk2OSwtMTAzOTM0
+MzE0NiwtMzgwMDAwNjg1LC0xOTYwOTQ2NzkzLC0xMTk0NDUyND
+QzLC0xMjc0Nzc2MzQ1LDE3NTA0NDE0MzIsLTEyMjk5Nzg3NzMs
+MTQ4NDg1MjgwNCwtNTQyMjYzODQ4LDE0NjQ5NzQ3ODIsLTkxMj
+U1MDUzMywtNTUxNzQ3NiwyMjk0Nzg5NzYsMTA0MDQ5MTMyMiwt
+NDgyODM0N119
 -->
