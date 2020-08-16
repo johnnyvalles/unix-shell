@@ -294,8 +294,8 @@ void exec_cmd(char** argv, int argc) {
     }
 }
 ```
-
-Now that the shell is complete, we  
+The completed shell can be compiled using `gcc` in the following manner:
+`` 
 
 ## Reaping Child Processes & Avoiding Zombies
 When a child process terminates, `wait()` signals to the operating system that it has completed. This permits the operating system to *reap* the process. In turn, freeing system resources used to maintain the process' state (e.g. process control block).
@@ -320,5 +320,5 @@ However, subsequent posts will provide a guide to implementing the missing featu
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUyNzI0NjU2LC0xNDkwMzY5MTJdfQ==
+eyJoaXN0b3J5IjpbMTkzNDc2NDM5NiwtMTQ5MDM2OTEyXX0=
 -->
