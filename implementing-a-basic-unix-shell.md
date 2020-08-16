@@ -305,7 +305,7 @@ If `wait()` is not called, the child process still runs until it terminates. How
 The implementation is considered limited due to the following missing features:
 -   Background processes (i.e. using `&` operator)
 -   Handling of asynchronous signals
--   I/O redirection
+-   I/O redirection (e.g. `ps -aux > processes.txt`)
 -   Pipelines (e.g. `process1 | process2 | process3`)
 
 However, subsequent posts will provide a guide to implementing the missing features.
@@ -319,5 +319,6 @@ However, subsequent posts will provide a guide to implementing the missing featu
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NTE0NDc1MywtMTQ5MDM2OTEyXX0=
+eyJoaXN0b3J5IjpbMTM5MzAwOTMxNSwxMzQ1MTQ0NzUzLC0xND
+kwMzY5MTJdfQ==
 -->
