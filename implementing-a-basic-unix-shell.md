@@ -170,7 +170,7 @@ void exec_cmd(char** argv, int argc) {
 
 > Quick Tip: the operating system scheduler decides when either the parent or child process runs. Therefore, the parent can run first, and then the child or vice-versa.  However, using `wait()` halts the parent process until a child process has terminated.
 
-> Quick Tip: Additional information on the systems calls can be obtained by referring to their respective man-page entries (e.g. `man execv` or `man fork`).
+> Quick Tip: additional information on system calls can be obtained by referring to their respective man-page entries (e.g. `man execv` or `man fork`).
 
 ## Piecing Together the Shell & Compiling
 ```c
@@ -319,6 +319,6 @@ However, subsequent posts will provide a guide to implementing the missing featu
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg0MDY4NjI5LDEzOTMwMDkzMTUsMTM0NT
-E0NDc1MywtMTQ5MDM2OTEyXX0=
+eyJoaXN0b3J5IjpbLTE3Njk3Nzg5MzMsMTM5MzAwOTMxNSwxMz
+Q1MTQ0NzUzLC0xNDkwMzY5MTJdfQ==
 -->
