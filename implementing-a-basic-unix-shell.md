@@ -172,7 +172,7 @@ void exec_cmd(char** argv, int argc) {
 
 > Quick Tip: more information on the systems calls can be obtained by referring to their respective man-page entries (e.g. `man execv` or `man fork`).
 
-## Piecing Together the Shell
+## Piecing Together the Shell & Compiling
 ```c
 /* shell.c */
 #include <unistd.h>
@@ -295,7 +295,7 @@ void exec_cmd(char** argv, int argc) {
 }
 ```
 The completed shell can be compiled using `gcc` in the following manner:
-`` 
+`gcc shell.c -o shell`.  If you wish to generate an executable file with debugging information for use with `gdb`, compile the shell using the 
 
 ## Reaping Child Processes & Avoiding Zombies
 When a child process terminates, `wait()` signals to the operating system that it has completed. This permits the operating system to *reap* the process. In turn, freeing system resources used to maintain the process' state (e.g. process control block).
@@ -320,5 +320,5 @@ However, subsequent posts will provide a guide to implementing the missing featu
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNDc2NDM5NiwtMTQ5MDM2OTEyXX0=
+eyJoaXN0b3J5IjpbMTM5NTU0MzQzNiwtMTQ5MDM2OTEyXX0=
 -->
