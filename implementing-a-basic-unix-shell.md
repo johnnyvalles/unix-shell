@@ -294,7 +294,7 @@ void exec_cmd(char** argv, int argc) {
     }
 }
 ```
-The completed shell can be compiled using `gcc` in the following manner: `gcc shell.c -o shell`.  If you wish to generate an executable file with debugging information for use with `gdb`, compile the shell using the `-g` option: `gcc -g shell.c -o shell`. Alternatively, if you're following along using the shell repository, running make will compile the shell as in the first example. 
+The completed shell can be compiled using `gcc` in the following manner: `gcc shell.c -o shell`.  If you wish to generate an executable file with debugging information for use with `gdb`, compile the shell using the `-g` option: `gcc -g shell.c -o shell`. Alternatively, if you're using the shell's repository, running `make` will compile the shell as in the first example. 
 
 ## Reaping Child Processes & Avoiding Zombies
 When a child process terminates, `wait()` signals to the operating system that it has completed. This permits the operating system to *reap* the process. In turn, freeing system resources used to maintain the process' state (e.g. process control block).
@@ -319,5 +319,5 @@ However, subsequent posts will provide a guide to implementing the missing featu
 
 [https://en.wikipedia.org/wiki/Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg4ODcwNjc5LC0xNDkwMzY5MTJdfQ==
+eyJoaXN0b3J5IjpbMTM0NTE0NDc1MywtMTQ5MDM2OTEyXX0=
 -->
