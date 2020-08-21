@@ -302,7 +302,7 @@ When a child process terminates, `wait()` signals to the operating system that i
 If `wait()` is not called, the child process still runs until it terminates. However, it will continue to consume system resources because it was not reaped. This is referred to as a *zombie* state. For processes that have long-running times and spawn multiple children throughout their execution, they must reap their children to prevent resource leaks.
 
 ## Limitations & Future Posts
-The implementation is considered limited due to the following missing features:
+Our shell implementation is considered limited due to the following missing features:
 -   Background processes (i.e. using `&` operator)
 -   Handling of asynchronous signals
 -   I/O redirection (e.g. `ps -aux > processes.txt`)
